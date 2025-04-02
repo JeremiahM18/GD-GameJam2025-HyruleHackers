@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      adjusted_fire_no_ice_left_0: 8936725544519222175
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

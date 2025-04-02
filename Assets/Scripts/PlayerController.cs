@@ -43,16 +43,16 @@ public class PlayerController : MonoBehaviour
     void OnCollisionEnter2D (Collision2D other) {
         // Doors
         if (other.gameObject.CompareTag("ForrestDoor")) {
-            SceneManager.LoadScene("ForrestWorld");
+            SceneManager.LoadScene("ForrestRoom");
         }
-        else if (other.gameObject.CompareTag("LavaDoor")) {
-            SceneManager.LoadScene("LavaWorld");
+        else if (other.gameObject.CompareTag("LavaRoom")) {
+            SceneManager.LoadScene("LavaRoom");
         }
         else if (other.gameObject.CompareTag("IceDoor")) {
-            SceneManager.LoadScene("IceWorld");
+            SceneManager.LoadScene("IceRoom");
         }
         else if (other.gameObject.CompareTag("Door")) {
-            SceneManager.LoadScene("InnerTriangle");
+            SceneManager.LoadScene("InnerRoom");
         }
 
         // Lose life when hit enemy
