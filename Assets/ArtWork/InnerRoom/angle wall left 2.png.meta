@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7c4f5807791c34c16b5bcb21923336f5
+guid: 453dea6dfd5fd4d40a0e4b78a38a4288
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1824816969606149950
-    second: Floor_1_0
+      213: 6156447338985931011
+    second: angle wall left 2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Floor_1_0
+      name: angle wall left 2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e37ba759d5d035910800000000000000
-      internalID: 1824816969606149950
+      spriteID: 301c7ae8c38107550800000000000000
+      internalID: 6156447338985931011
       vertices: []
       indices: 
       edges: []

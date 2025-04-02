@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 776a92b8e50924e74a10cb76aa08566b
+guid: 0a8eae3233fd240cca45de735c53f22e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4221028491463352590
-    second: Flat_Ceiling_0
+      213: 4993488765614775663
+    second: angle wall right 2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Flat_Ceiling_0
+      name: angle wall right 2_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 4
+        y: 0
         width: 16
-        height: 7
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2fe168373f4eb65c0800000000000000
-      internalID: -4221028491463352590
+      spriteID: f6d5f50639f6c4540800000000000000
+      internalID: 4993488765614775663
       vertices: []
       indices: 
       edges: []
