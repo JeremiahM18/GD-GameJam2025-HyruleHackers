@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2aadfe15a83ca4311b7b9903b597e03b
+guid: 13456d59ded894522b07ce78c1eaf2a6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7034970342868521045
-    second: Flat_Wall_0
+      213: -1557114530514084546
+    second: ceiling corner left_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Flat_Wall_0
+      name: ceiling corner left_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 7
         y: 0
-        width: 16
-        height: 16
+        width: 9
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bafe9ebfeb3ce5e90800000000000000
-      internalID: -7034970342868521045
+      spriteID: e3ddb1e9594046ae0800000000000000
+      internalID: -1557114530514084546
       vertices: []
       indices: 
       edges: []
