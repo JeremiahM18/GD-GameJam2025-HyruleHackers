@@ -12,7 +12,7 @@ public class MenuScript : MonoBehaviour
     }
     
     public void gotoGame() {
-        StartCoroutine(WaitForSoundAndTransition("InnerTriangle"));
+        StartCoroutine(WaitForSoundAndTransition("InnerRoom"));
     }
 
     public void gotoMenu()

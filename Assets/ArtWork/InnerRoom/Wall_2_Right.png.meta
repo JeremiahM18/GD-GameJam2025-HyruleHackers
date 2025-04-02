@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3e2444fd12cb142b8afeb641b883d461
+guid: b8e039b1372b94e25a11f4f24e6930a1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4988110330110258428
-    second: Tile_Magma_1_0
+      213: -6150037506939860413
+    second: Wall_2_Right_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tile_Magma_1_0
+      name: Wall_2_Right_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4035259351ca6cab0800000000000000
-      internalID: -4988110330110258428
+      spriteID: 34a4583c87da6aaa0800000000000000
+      internalID: -6150037506939860413
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Tile_Magma_1_0: -4988110330110258428
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

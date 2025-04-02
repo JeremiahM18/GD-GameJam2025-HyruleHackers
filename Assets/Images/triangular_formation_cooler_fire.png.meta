@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      triangular_formation_cooler_fire_0: 1112350647722933791
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
