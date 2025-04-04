@@ -16,7 +16,10 @@ public class PlayerController : MonoBehaviour
     private bool hasSword = false;
     private bool hasFireKey = false;
     private bool hasIceKey = false;
-    private bool hasForrestKey = false;
+    private bool hasForestKey = false;
+    private bool hasFireTriangle = false;
+    private bool hasIceTriangle = false;
+    private bool hasForestTriangle = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -45,23 +48,48 @@ public class PlayerController : MonoBehaviour
 
     // Handle all pick up items
     void onTriggerEnter2D (Collision2D pickup) {
-        // FireKey
+        // Fire Key
         if (pickup.gameObject.CompreTag("FireKey")) {
             hasFireKey = true;
+        }
+        // Ice Key
+        else if (pickup.gameObject.CompreTag("IceKey")) {
+            hasIceKey = true;
+        }
+        // Forest Key
+        else if (pickup.gameObject.CompreTag("ForestKey")) {
+            hasForestKey = true;
+        }
+        // Fire Triangle
+        else if (pickup.gameObject.CompreTag("FireKey")) {
+            hasFireTriangle = true;
+        }
+        // Ice Triangle
+        else if (pickup.gameObject.CompreTag("IceKey")) {
+            hasIceTriangle = true;
+        }
+        // Forest Triangle
+        else if (pickup.gameObject.CompreTag("ForestTriangle")) {
+            hasForestTriangle = true;
+        }
+
+        // Heart
+         else if (other.gameObject.CompareTag("Heart")) {
+            gainHealth();
         }
     }
 
     void OnCollisionEnter2D (Collision2D other) {
         // Doors
-        if (other.gameObject.CompareTag("ForestDoor")) {
+        if (other.gameObject.CompareTag("ForestDoor") && hasForestKey == true) {
             SceneManager.LoadScene("ForestRoom");
-            // Replace with a pop-up UI scene that asks to enter
+            // Replace with a pop-up UI scene that asks to enter room
             // Yes button will load scene
         }
-        else if (other.gameObject.CompareTag("LavaDoor") && ) {
+        else if (other.gameObject.CompareTag("LavaDoor") && hasFireKey == true) {
             SceneManager.LoadScene("LavaRoom");
         }
-        else if (other.gameObject.CompareTag("IceDoor")) {
+        else if (other.gameObject.CompareTag("IceDoor") && hasIceKey == true) {
             SceneManager.LoadScene("IceRoom");
         }
         else if (other.gameObject.CompareTag("Door")) {
@@ -71,10 +99,6 @@ public class PlayerController : MonoBehaviour
         // Lose life when hit enemy
         else if (other.gameObject.CompareTag("Enemy")) {
             loseHealth();
-        }
-        // Gain life when interact with
-         else if (other.gameObject.CompareTag("Health")) {
-            gainHealth();
         }
     }
 
