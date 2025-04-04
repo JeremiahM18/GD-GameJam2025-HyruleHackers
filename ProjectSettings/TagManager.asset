@@ -9,7 +9,13 @@ TagManager:
   - ForrestDoor
   - LavaDoor
   - Enemy
-  - Health
+  - FireKey
+  - IceKey
+  - ForestKey
+  - FireTriangle
+  - IceTriangle
+  - ForestTriangle
+  - Heart
   layers:
   - Default
   - TransparentFX

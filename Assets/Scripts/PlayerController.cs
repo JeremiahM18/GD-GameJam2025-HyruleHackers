@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
         rb2d.linearVelocity = movement;
 
         // Attack
-        if (Input.GetButtonDown(0) && hasSword == true) {
+        if (Input.GetButtonDown("Fire1") && hasSword == true) {
             //play attack sound animation
         }
     }
@@ -49,32 +49,32 @@ public class PlayerController : MonoBehaviour
     // Handle all pick up items
     void onTriggerEnter2D (Collision2D pickup) {
         // Fire Key
-        if (pickup.gameObject.CompreTag("FireKey")) {
+        if (pickup.gameObject.CompareTag("FireKey")) {
             hasFireKey = true;
         }
         // Ice Key
-        else if (pickup.gameObject.CompreTag("IceKey")) {
+        else if (pickup.gameObject.CompareTag("IceKey")) {
             hasIceKey = true;
         }
         // Forest Key
-        else if (pickup.gameObject.CompreTag("ForestKey")) {
+        else if (pickup.gameObject.CompareTag("ForestKey")) {
             hasForestKey = true;
         }
         // Fire Triangle
-        else if (pickup.gameObject.CompreTag("FireKey")) {
+        else if (pickup.gameObject.CompareTag("FireKey")) {
             hasFireTriangle = true;
         }
         // Ice Triangle
-        else if (pickup.gameObject.CompreTag("IceKey")) {
+        else if (pickup.gameObject.CompareTag("IceKey")) {
             hasIceTriangle = true;
         }
         // Forest Triangle
-        else if (pickup.gameObject.CompreTag("ForestTriangle")) {
+        else if (pickup.gameObject.CompareTag("ForestTriangle")) {
             hasForestTriangle = true;
         }
 
         // Heart
-         else if (other.gameObject.CompareTag("Heart")) {
+         else if (pickup.gameObject.CompareTag("Heart")) {
             gainHealth();
         }
     }
