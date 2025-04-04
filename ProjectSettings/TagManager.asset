@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Door
   - IceDoor
-  - ForrestDoor
   - LavaDoor
   - Enemy
   - FireKey
@@ -16,6 +15,7 @@ TagManager:
   - IceTriangle
   - ForestTriangle
   - Heart
+  - ForestDoor
   layers:
   - Default
   - TransparentFX
