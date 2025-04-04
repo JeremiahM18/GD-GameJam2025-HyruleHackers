@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
     public int lifeCount = 4;
 
     private bool hasSword = false;
+    private bool hasFireKey = false;
+    private bool hasIceKey = false;
+    private bool hasForrestKey = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,17 +38,27 @@ public class PlayerController : MonoBehaviour
         rb2d.linearVelocity = movement;
 
         // Attack
-        if (Input.GetButtonDown("Fire1") && hasSword == true) {
+        if (Input.GetButtonDown(0) && hasSword == true) {
             //play attack sound animation
+        }
+    }
+
+    // Handle all pick up items
+    void onTriggerEnter2D (Collision2D pickup) {
+        // FireKey
+        if (pickup.gameObject.CompreTag("FireKey")) {
+            hasFireKey = true;
         }
     }
 
     void OnCollisionEnter2D (Collision2D other) {
         // Doors
-        if (other.gameObject.CompareTag("ForrestDoor")) {
-            SceneManager.LoadScene("ForrestRoom");
+        if (other.gameObject.CompareTag("ForestDoor")) {
+            SceneManager.LoadScene("ForestRoom");
+            // Replace with a pop-up UI scene that asks to enter
+            // Yes button will load scene
         }
-        else if (other.gameObject.CompareTag("LavaRoom")) {
+        else if (other.gameObject.CompareTag("LavaDoor") && ) {
             SceneManager.LoadScene("LavaRoom");
         }
         else if (other.gameObject.CompareTag("IceDoor")) {
