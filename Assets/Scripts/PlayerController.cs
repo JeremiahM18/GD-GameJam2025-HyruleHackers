@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public Transform RespawnPoint;
     private float moveX;
     private float moveY;
     private Rigidbody2D rb2d;
@@ -98,6 +99,12 @@ public class PlayerController : MonoBehaviour
 
         // Lose life when hit enemy
         else if (other.gameObject.CompareTag("Enemy")) {
+            loseHealth();
+        }
+
+        else if (other.gameObject.CompareTag("IcicleWall"))
+        {
+            transform.position = RespawnPoint.position;
             loseHealth();
         }
     }
