@@ -1,3 +1,15 @@
+/*
+Notes
+******* Audio Sources[] *******
+0 = door sound
+1 = sword slash
+2 = lose health
+3 = gain health
+4 = death
+
+*******
+*/
+
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,14 +27,30 @@ public class PlayerController : MonoBehaviour
     public int lifeCount = 4;
 
     private bool hasSword = false;
-    private bool hasFireKey = false;
-    private bool hasIceKey = false;
-    private bool hasForestKey = false;
+    private int keyCount = 0; // forest >=1, ice >= 2, lava >= 3
     private bool hasFireTriangle = false;
     private bool hasIceTriangle = false;
     private bool hasForestTriangle = false;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    // Door Menu
+    public GameObject doorMenu;
+    public GameObject hasKey;
+    public GameObject locked;
+
+    // Coin Collect
+    private int triangleCoins = 0;
+    private const int maxCoins = 99;
+
+    // Coroutines
+
+    // Occurs whenever player hits a locked door
+    IEnumerator doorLocked() {
+        locked.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        locked.SetActive(false);
+        doorMenu.SetActive(false);
+    }
+
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -33,40 +61,36 @@ public class PlayerController : MonoBehaviour
         moveX = movementVector.x;
         moveY = movementVector.y;
     }
-
-    // Update is called once per frame
     void Update()
     {
         // Movement
+        if (doorMenu.gameObject.activeSelf == true) {
+            rb2d.linearVelocity = Vector2.zero;
+        }
+        else {
         Vector2 movement = new Vector2(moveX, moveY);
         rb2d.linearVelocity = movement;
+        }
 
         // Attack
         if (Input.GetButtonDown("Fire1") && hasSword == true) {
-            //play attack sound animation
+            //play attack sound and animation
         }
     }
 
     // Handle all pick up items
-    void onTriggerEnter2D (Collision2D pickup) {
-        // Fire Key
-        if (pickup.gameObject.CompareTag("FireKey")) {
-            hasFireKey = true;
-        }
-        // Ice Key
-        else if (pickup.gameObject.CompareTag("IceKey")) {
-            hasIceKey = true;
-        }
-        // Forest Key
-        else if (pickup.gameObject.CompareTag("ForestKey")) {
-            hasForestKey = true;
+    void OnTriggerEnter2D (Collider2D pickup) {
+        // Keys
+        if (pickup.gameObject.CompareTag("Key")) {
+            pickup.gameObject.SetActive(false);
+            keyCount = keyCount + 1;
         }
         // Fire Triangle
-        else if (pickup.gameObject.CompareTag("FireKey")) {
+        else if (pickup.gameObject.CompareTag("Firetriangle")) {
             hasFireTriangle = true;
         }
         // Ice Triangle
-        else if (pickup.gameObject.CompareTag("IceKey")) {
+        else if (pickup.gameObject.CompareTag("IceTriangle")) {
             hasIceTriangle = true;
         }
         // Forest Triangle
@@ -82,19 +106,33 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D (Collision2D other) {
         // Doors
-        if (other.gameObject.CompareTag("ForestDoor") && hasForestKey == true) {
-            SceneManager.LoadScene("ForestRoom");
-            // Replace with a pop-up UI scene that asks to enter room
-            // Yes button will load scene
+        if (other.gameObject.CompareTag("ForestDoor")) {
+                doorMenu.SetActive(true);
+                if (keyCount >= 1) {
+                    // hasKey = GameObject.Find("HasForestKey");
+                    hasKey.SetActive(true);
+                } else {
+                    StartCoroutine(doorLocked());
+                }
         }
-        else if (other.gameObject.CompareTag("LavaDoor") && hasFireKey == true) {
-            SceneManager.LoadScene("LavaRoom");
+        else if (other.gameObject.CompareTag("IceDoor")) {
+            doorMenu.SetActive(true);
+                if (keyCount >= 2) {
+                    hasKey.SetActive(true);
+                } else {
+                    StartCoroutine(doorLocked());
+                }
         }
-        else if (other.gameObject.CompareTag("IceDoor") && hasIceKey == true) {
-            SceneManager.LoadScene("IceRoom");
+        else if (other.gameObject.CompareTag("LavaDoor")) {
+            doorMenu.SetActive(true);
+                if (keyCount >= 3) {
+                    hasKey.SetActive(true);
+                } else {
+                    StartCoroutine(doorLocked());
+                }
         }
         else if (other.gameObject.CompareTag("Door")) {
-            SceneManager.LoadScene("InnerRoom");
+            hasKey.SetActive(true);
         }
 
         // Lose life when hit enemy
@@ -125,4 +163,46 @@ public class PlayerController : MonoBehaviour
         // add a life icon
         lifeCount = lifeCount + 1;
     }
+
+    #region Coins
+    public bool AddCoin(int amount)
+    {
+        if (triangleCoins >= maxCoins)
+        {
+            return false;
+        }
+        triangleCoins += amount;
+        if (triangleCoins > maxCoins)
+        {
+            triangleCoins = maxCoins;
+        }
+        return true;
+    }
+
+    public int GetCoinCount() => triangleCoins;
+
+    public void SetCoinCount(int amount)
+    {
+        triangleCoins = Mathf.Clamp(amount, 0, maxCoins);
+    }
+
+    #endregion
+
+    #region Gem States
+
+    public bool HasFireGem() => hasFireTriangle;
+    public bool HasIceGem() => hasIceTriangle;
+
+    public bool HasForestGem() => hasForestTriangle;
+
+    public void SetGemState(string type, bool state)
+    {
+        switch (type)
+        {
+            case "fire": hasFireTriangle = state; break;
+            case "ice": hasIceTriangle = state; break;
+            case "forest": hasForestTriangle = state; break;
+        }
+    }
+    #endregion
 }
