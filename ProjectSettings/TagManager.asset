@@ -8,15 +8,13 @@ TagManager:
   - IceDoor
   - LavaDoor
   - Enemy
-  - FireKey
-  - IceKey
-  - ForestKey
   - FireTriangle
   - IceTriangle
   - ForestTriangle
   - Heart
   - ForestDoor
   - IcicleWall
+  - Key
   layers:
   - Default
   - TransparentFX

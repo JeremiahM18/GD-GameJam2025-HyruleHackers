@@ -15,12 +15,15 @@ public class PlayerController : MonoBehaviour
     public int lifeCount = 4;
 
     private bool hasSword = false;
-    private bool hasFireKey = false;
-    private bool hasIceKey = false;
-    private bool hasForestKey = false;
+    private int keyCount = 0; // forest >=1, ice >= 2, lava >= 3
     private bool hasFireTriangle = false;
     private bool hasIceTriangle = false;
     private bool hasForestTriangle = false;
+
+    // Door menu
+    public GameObject DoorMenu;
+    public GameObject HasKey;
+    public GameObject Locked;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -48,25 +51,18 @@ public class PlayerController : MonoBehaviour
     }
 
     // Handle all pick up items
-    void onTriggerEnter2D (Collision2D pickup) {
-        // Fire Key
-        if (pickup.gameObject.CompareTag("FireKey")) {
-            hasFireKey = true;
-        }
-        // Ice Key
-        else if (pickup.gameObject.CompareTag("IceKey")) {
-            hasIceKey = true;
-        }
-        // Forest Key
-        else if (pickup.gameObject.CompareTag("ForestKey")) {
-            hasForestKey = true;
+    void onTriggerEnter2D (Collider2D pickup) {
+        // Keys
+        if (pickup.gameObject.CompareTag("Key")) {
+            pickup.gameObject.SetActive(false);
+            keyCount = keyCount + 1;
         }
         // Fire Triangle
-        else if (pickup.gameObject.CompareTag("FireKey")) {
+        else if (pickup.gameObject.CompareTag("Firetriangle")) {
             hasFireTriangle = true;
         }
         // Ice Triangle
-        else if (pickup.gameObject.CompareTag("IceKey")) {
+        else if (pickup.gameObject.CompareTag("IceTriangle")) {
             hasIceTriangle = true;
         }
         // Forest Triangle
@@ -82,16 +78,24 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D (Collision2D other) {
         // Doors
-        if (other.gameObject.CompareTag("ForestDoor") && hasForestKey == true) {
-            SceneManager.LoadScene("ForestRoom");
-            // Replace with a pop-up UI scene that asks to enter room
-            // Yes button will load scene
+        if (other.gameObject.CompareTag("ForestDoor")) {
+                // SceneManager.LoadScene("ForestRoom");
+                // Pop-up UI scene that asks to enter room
+                DoorMenu.SetActive(true);
+                if (keyCount >= 1) {
+                    HasKey.SetActive(true);
+                } else {
+                    Locked.SetActive(true);
+                }
+            
         }
-        else if (other.gameObject.CompareTag("LavaDoor") && hasFireKey == true) {
-            SceneManager.LoadScene("LavaRoom");
-        }
-        else if (other.gameObject.CompareTag("IceDoor") && hasIceKey == true) {
+        else if (other.gameObject.CompareTag("IceDoor")) {
+            // keyCount >= 2
             SceneManager.LoadScene("IceRoom");
+        }
+        else if (other.gameObject.CompareTag("LavaDoor")) {
+            // keyCount >= 3
+            SceneManager.LoadScene("LavaRoom");
         }
         else if (other.gameObject.CompareTag("Door")) {
             SceneManager.LoadScene("InnerRoom");
