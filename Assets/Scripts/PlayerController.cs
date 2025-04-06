@@ -25,8 +25,11 @@ public class PlayerController : MonoBehaviour
     public GameObject HasKey;
     public GameObject Locked;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    // Coin Collect
+    private int triangleCoins = 0;
+    private const int maxCoins = 99;
+
+        void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
     }
@@ -36,8 +39,6 @@ public class PlayerController : MonoBehaviour
         moveX = movementVector.x;
         moveY = movementVector.y;
     }
-
-    // Update is called once per frame
     void Update()
     {
         // Movement
@@ -129,4 +130,45 @@ public class PlayerController : MonoBehaviour
         // add a life icon
         lifeCount = lifeCount + 1;
     }
+    #region Coins
+    public bool AddCoin(int amount)
+    {
+        if (triangleCoins >= maxCoins)
+        {
+            return false;
+        }
+        triangleCoins += amount;
+        if (triangleCoins > maxCoins)
+        {
+            triangleCoins = maxCoins;
+        }
+        return true;
+    }
+
+    public int GetCoinCount() => triangleCoins;
+
+    public void SetCoinCount(int amount)
+    {
+        triangleCoins = Mathf.Clamp(amount, 0, maxCoins);
+    }
+
+    #endregion
+
+    #region Gem States
+
+    public bool HasFireGem() => hasFireTriangle;
+    public bool HasIceGem() => hasIceTriangle;
+
+    public bool HasForestGem() => hasForestTriangle;
+
+    public void SetGemState(string type, bool state)
+    {
+        switch (type)
+        {
+            case "fire": hasFireTriangle = state; break;
+            case "ice": hasIceTriangle = state; break;
+            case "forest": hasForestTriangle = state; break;
+        }
+    }
+    #endregion
 }
