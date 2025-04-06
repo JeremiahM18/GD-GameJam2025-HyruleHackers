@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 68f2dd6136b3440a596d70685c377ccc
+guid: dcfc264a88d5543be83aab5cc3387157
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8910871337426698417
-    second: Deltawalk_0
+      213: -2327047053215234315
+    second: Deltawalk back_0
   - first:
-      213: -4715470416834805453
-    second: Deltawalk_1
+      213: 8543230339037331997
+    second: Deltawalk back_1
   - first:
-      213: 6712472296020987894
-    second: Deltawalk_2
+      213: -3405496157983078300
+    second: Deltawalk back_2
   - first:
-      213: -7115568365153793565
-    second: Deltawalk_3
+      213: -1060340192979358916
+    second: Deltawalk back_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -122,10 +122,54 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Deltawalk_0
+      name: Deltawalk back_0
       rect:
         serializedVersion: 2
         x: 5
+        y: 32
+        width: 23
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f68c79c80ba4bfd0800000000000000
+      internalID: -2327047053215234315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deltawalk back_1
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 0
+        width: 23
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1209a8bab6af8670800000000000000
+      internalID: 8543230339037331997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deltawalk back_2
+      rect:
+        serializedVersion: 2
+        x: 37
         y: 31
         width: 23
         height: 32
@@ -137,17 +181,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1b047820546c9ab70800000000000000
-      internalID: 8910871337426698417
+      spriteID: 4680673994f3db0d0800000000000000
+      internalID: -3405496157983078300
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Deltawalk_1
+      name: Deltawalk back_3
       rect:
         serializedVersion: 2
-        x: 5
+        x: 37
         y: 0
         width: 23
         height: 31
@@ -159,52 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 331c2b7b3a84f8eb0800000000000000
-      internalID: -4715470416834805453
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Deltawalk_2
-      rect:
-        serializedVersion: 2
-        x: 37
-        y: 31
-        width: 23
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6ff4bf03dfd772d50800000000000000
-      internalID: 6712472296020987894
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Deltawalk_3
-      rect:
-        serializedVersion: 2
-        x: 37
-        y: 0
-        width: 23
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3e94004954c604d90800000000000000
-      internalID: -7115568365153793565
+      spriteID: c3b6560663ae841f0800000000000000
+      internalID: -1060340192979358916
       vertices: []
       indices: 
       edges: []

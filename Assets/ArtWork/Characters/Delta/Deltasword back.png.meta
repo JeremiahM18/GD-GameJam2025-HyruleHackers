@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 7da437373d14c4dd995cb8d1eacfae44
+guid: 45b9ea19d6d234685b927d9235da54f3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6165958975507867224
-    second: Deltawalk left_0
+      213: -3613739952983198131
+    second: Deltasword back_0
   - first:
-      213: -1304641083242042023
-    second: Deltawalk left_1
+      213: -6430032027867200101
+    second: Deltasword back_1
   - first:
-      213: 8444142007406586415
-    second: Deltawalk left_2
+      213: 9023757930223301588
+    second: Deltasword back_2
   - first:
-      213: -7963970109657597366
-    second: Deltawalk left_3
+      213: -4786758727926186544
+    second: Deltasword back_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -122,12 +122,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Deltawalk left_0
+      name: Deltasword back_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 31
-        width: 18
+        x: 5
+        y: 32
+        width: 23
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -137,19 +137,63 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8a9d83dfafc1e6aa0800000000000000
-      internalID: -6165958975507867224
+      spriteID: d46bccfb8aa69ddc0800000000000000
+      internalID: -3613739952983198131
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Deltawalk left_1
+      name: Deltasword back_1
       rect:
         serializedVersion: 2
-        x: 10
+        x: 5
         y: 0
-        width: 15
+        width: 23
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b95479c30ffe3c6a0800000000000000
+      internalID: -6430032027867200101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deltasword back_2
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 31
+        width: 23
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d3f2121704da3d70800000000000000
+      internalID: 9023757930223301588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deltasword back_3
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 0
+        width: 23
         height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -159,52 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 95d2af9d8dbf4ede0800000000000000
-      internalID: -1304641083242042023
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Deltawalk left_2
-      rect:
-        serializedVersion: 2
-        x: 43
-        y: 31
-        width: 15
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f2a6c60ba6e9f2570800000000000000
-      internalID: 8444142007406586415
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Deltawalk left_3
-      rect:
-        serializedVersion: 2
-        x: 43
-        y: 0
-        width: 15
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a4ab704516b4a7190800000000000000
-      internalID: -7963970109657597366
+      spriteID: 0dd757c5c44029db0800000000000000
+      internalID: -4786758727926186544
       vertices: []
       indices: 
       edges: []

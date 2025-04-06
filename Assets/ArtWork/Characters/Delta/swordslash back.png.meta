@@ -1,19 +1,13 @@
 fileFormatVersion: 2
-guid: 4524c2ad7680242f69d78862f2b2f133
+guid: 6f49c439ea28f44fc9e2af9b12c3b4a8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4175944910084581284
-    second: Deltawalk right_0
+      213: -6338477185915263648
+    second: swordslash back_0
   - first:
-      213: 4042945695793107828
-    second: Deltawalk right_1
-  - first:
-      213: 4927541960624142208
-    second: Deltawalk right_2
-  - first:
-      213: 5093562395204598435
-    second: Deltawalk right_3
+      213: -3125564266165041947
+    second: swordslash back_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -122,34 +116,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Deltawalk right_0
+      name: swordslash back_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 31
-        width: 18
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4a7213745cfe3f930800000000000000
-      internalID: 4175944910084581284
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Deltawalk right_1
-      rect:
-        serializedVersion: 2
-        x: 8
+        x: 4
         y: 0
-        width: 15
+        width: 27
         height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -159,19 +131,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 47351fb90bd6b1830800000000000000
-      internalID: 4042945695793107828
+      spriteID: 0656a9405943908a0800000000000000
+      internalID: -6338477185915263648
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Deltawalk right_2
+      name: swordslash back_1
       rect:
         serializedVersion: 2
-        x: 40
+        x: 5
         y: 31
-        width: 15
+        width: 23
         height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -181,30 +153,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 08775d25e45226440800000000000000
-      internalID: 4927541960624142208
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Deltawalk right_3
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 0
-        width: 15
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3aa3577f208ffa640800000000000000
-      internalID: 5093562395204598435
+      spriteID: 5e404902cd3cf94d0800000000000000
+      internalID: -3125564266165041947
       vertices: []
       indices: 
       edges: []
