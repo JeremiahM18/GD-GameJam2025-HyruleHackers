@@ -14,16 +14,19 @@ public class MenuScript : MonoBehaviour
     public void gotoGame() {
         StartCoroutine(WaitForSoundAndTransition("InnerRoom"));
     }
-
     public void gotoForest() {
         StartCoroutine(WaitForSoundAndTransition("ForestRoom"));
     }
-
+    public void gotoIce() {
+        StartCoroutine(WaitForSoundAndTransition("IceRoom"));
+    }
+    public void gotoLava() {
+        StartCoroutine(WaitForSoundAndTransition("LavaRoom"));
+    }
     public void gotoMenu()
     {
         StartCoroutine(WaitForSoundAndTransition("MainMenu"));
     }
-
     public void gotoGameOver()
     {
         StartCoroutine(WaitForSoundAndTransition("GameOver"));

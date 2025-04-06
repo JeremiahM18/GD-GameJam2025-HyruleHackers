@@ -42,9 +42,11 @@ public class PlayerController : MonoBehaviour
     private const int maxCoins = 99;
 
     // Coroutines
+
+    // Occurs whenever player hits a locked door
     IEnumerator doorLocked() {
         locked.SetActive(true);
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1.5f);
         locked.SetActive(false);
         doorMenu.SetActive(false);
     }
@@ -105,26 +107,32 @@ public class PlayerController : MonoBehaviour
     void OnCollisionEnter2D (Collision2D other) {
         // Doors
         if (other.gameObject.CompareTag("ForestDoor")) {
-                // SceneManager.LoadScene("ForestRoom");
-                // Pop-up UI scene that asks to enter room
                 doorMenu.SetActive(true);
                 if (keyCount >= 1) {
+                    // hasKey = GameObject.Find("HasForestKey");
                     hasKey.SetActive(true);
                 } else {
                     StartCoroutine(doorLocked());
                 }
-            
         }
         else if (other.gameObject.CompareTag("IceDoor")) {
-            // keyCount >= 2
-            SceneManager.LoadScene("IceRoom");
+            doorMenu.SetActive(true);
+                if (keyCount >= 2) {
+                    hasKey.SetActive(true);
+                } else {
+                    StartCoroutine(doorLocked());
+                }
         }
         else if (other.gameObject.CompareTag("LavaDoor")) {
-            // keyCount >= 3
-            SceneManager.LoadScene("LavaRoom");
+            doorMenu.SetActive(true);
+                if (keyCount >= 3) {
+                    hasKey.SetActive(true);
+                } else {
+                    StartCoroutine(doorLocked());
+                }
         }
         else if (other.gameObject.CompareTag("Door")) {
-            SceneManager.LoadScene("InnerRoom");
+            hasKey.SetActive(true);
         }
 
         // Lose life when hit enemy
@@ -155,6 +163,7 @@ public class PlayerController : MonoBehaviour
         // add a life icon
         lifeCount = lifeCount + 1;
     }
+
     #region Coins
     public bool AddCoin(int amount)
     {
