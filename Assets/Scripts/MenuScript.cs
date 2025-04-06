@@ -15,6 +15,10 @@ public class MenuScript : MonoBehaviour
         StartCoroutine(WaitForSoundAndTransition("InnerRoom"));
     }
 
+    public void gotoForest() {
+        StartCoroutine(WaitForSoundAndTransition("ForestRoom"));
+    }
+
     public void gotoMenu()
     {
         StartCoroutine(WaitForSoundAndTransition("MainMenu"));

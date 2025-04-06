@@ -1,3 +1,15 @@
+/*
+Notes
+******* Audio Sources[] *******
+0 = door sound
+1 = sword slash
+2 = lose health
+3 = gain health
+4 = death
+
+*******
+*/
+
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,16 +32,24 @@ public class PlayerController : MonoBehaviour
     private bool hasIceTriangle = false;
     private bool hasForestTriangle = false;
 
-    // Door menu
-    public GameObject DoorMenu;
-    public GameObject HasKey;
-    public GameObject Locked;
+    // Door Menu
+    public GameObject doorMenu;
+    public GameObject hasKey;
+    public GameObject locked;
 
     // Coin Collect
     private int triangleCoins = 0;
     private const int maxCoins = 99;
 
-        void Start()
+    // Coroutines
+    IEnumerator doorLocked() {
+        locked.SetActive(true);
+        yield return new WaitForSeconds(2.0f);
+        locked.SetActive(false);
+        doorMenu.SetActive(false);
+    }
+
+    void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
     }
@@ -42,17 +62,22 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // Movement
+        if (doorMenu.gameObject.activeSelf == true) {
+            rb2d.linearVelocity = Vector2.zero;
+        }
+        else {
         Vector2 movement = new Vector2(moveX, moveY);
         rb2d.linearVelocity = movement;
+        }
 
         // Attack
         if (Input.GetButtonDown("Fire1") && hasSword == true) {
-            //play attack sound animation
+            //play attack sound and animation
         }
     }
 
     // Handle all pick up items
-    void onTriggerEnter2D (Collider2D pickup) {
+    void OnTriggerEnter2D (Collider2D pickup) {
         // Keys
         if (pickup.gameObject.CompareTag("Key")) {
             pickup.gameObject.SetActive(false);
@@ -82,11 +107,11 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("ForestDoor")) {
                 // SceneManager.LoadScene("ForestRoom");
                 // Pop-up UI scene that asks to enter room
-                DoorMenu.SetActive(true);
+                doorMenu.SetActive(true);
                 if (keyCount >= 1) {
-                    HasKey.SetActive(true);
+                    hasKey.SetActive(true);
                 } else {
-                    Locked.SetActive(true);
+                    StartCoroutine(doorLocked());
                 }
             
         }
