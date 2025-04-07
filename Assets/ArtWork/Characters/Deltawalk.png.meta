@@ -222,7 +222,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Deltawalk_0: 8910871337426698417
+      Deltawalk_1: -4715470416834805453
+      Deltawalk_2: 6712472296020987894
+      Deltawalk_3: -7115568365153793565
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

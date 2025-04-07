@@ -222,7 +222,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Deltasword left_0: -3416583753597462699
+      Deltasword left_1: -3014139927281482614
+      Deltasword left_2: -6712431813660237264
+      Deltasword left_3: -9176238797170095662
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
