@@ -1,0 +1,226 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e6fedc2472449cead18ef23b5cb30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library:
+  - m_Name: Deltawalk
+    m_Hash: 694057608
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Deltawalk_2
+      m_Hash: 933732827
+      m_Sprite: {fileID: 6712472296020987894, guid: 68f2dd6136b3440a596d70685c377ccc, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6712472296020987894, guid: 68f2dd6136b3440a596d70685c377ccc, type: 3}
+    - m_Name: Deltawalk_3
+      m_Hash: 10522957
+      m_Sprite: {fileID: -7115568365153793565, guid: 68f2dd6136b3440a596d70685c377ccc, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7115568365153793565, guid: 68f2dd6136b3440a596d70685c377ccc, type: 3}
+    - m_Name: Deltawalk_0
+      m_Hash: 430555383
+      m_Sprite: {fileID: 8910871337426698417, guid: 68f2dd6136b3440a596d70685c377ccc, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8910871337426698417, guid: 68f2dd6136b3440a596d70685c377ccc, type: 3}
+    - m_Name: Deltawalk_1
+      m_Hash: 783216737
+      m_Sprite: {fileID: -4715470416834805453, guid: 68f2dd6136b3440a596d70685c377ccc, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4715470416834805453, guid: 68f2dd6136b3440a596d70685c377ccc, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 4
+  - m_Name: Deltawalk back
+    m_Hash: 739893704
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Deltawalk back_0
+      m_Hash: 235733113
+      m_Sprite: {fileID: -2327047053215234315, guid: dcfc264a88d5543be83aab5cc3387157, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2327047053215234315, guid: dcfc264a88d5543be83aab5cc3387157, type: 3}
+    - m_Name: Deltawalk back_1
+      m_Hash: 956969199
+      m_Sprite: {fileID: 8543230339037331997, guid: dcfc264a88d5543be83aab5cc3387157, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8543230339037331997, guid: dcfc264a88d5543be83aab5cc3387157, type: 3}
+    - m_Name: Deltawalk back_2
+      m_Hash: 537092437
+      m_Sprite: {fileID: -3405496157983078300, guid: dcfc264a88d5543be83aab5cc3387157, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3405496157983078300, guid: dcfc264a88d5543be83aab5cc3387157, type: 3}
+    - m_Name: Deltawalk back_3
+      m_Hash: 386159043
+      m_Sprite: {fileID: -1060340192979358916, guid: dcfc264a88d5543be83aab5cc3387157, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1060340192979358916, guid: dcfc264a88d5543be83aab5cc3387157, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 4
+  - m_Name: Deltawalk right
+    m_Hash: 424234425
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Deltawalk right_0
+      m_Hash: 659149405
+      m_Sprite: {fileID: 4175944910084581284, guid: 4524c2ad7680242f69d78862f2b2f133, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4175944910084581284, guid: 4524c2ad7680242f69d78862f2b2f133, type: 3}
+    - m_Name: Deltawalk right_1
+      m_Hash: 273605323
+      m_Sprite: {fileID: 4042945695793107828, guid: 4524c2ad7680242f69d78862f2b2f133, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4042945695793107828, guid: 4524c2ad7680242f69d78862f2b2f133, type: 3}
+    - m_Name: Deltawalk right_2
+      m_Hash: 155693937
+      m_Sprite: {fileID: 4927541960624142208, guid: 4524c2ad7680242f69d78862f2b2f133, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4927541960624142208, guid: 4524c2ad7680242f69d78862f2b2f133, type: 3}
+    - m_Name: Deltawalk right_3
+      m_Hash: 1044415463
+      m_Sprite: {fileID: 5093562395204598435, guid: 4524c2ad7680242f69d78862f2b2f133, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5093562395204598435, guid: 4524c2ad7680242f69d78862f2b2f133, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 4
+  - m_Name: Deltawalk left
+    m_Hash: 1001441175
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Deltawalk left_0
+      m_Hash: 555996086
+      m_Sprite: {fileID: -6165958975507867224, guid: 7da437373d14c4dd995cb8d1eacfae44, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6165958975507867224, guid: 7da437373d14c4dd995cb8d1eacfae44, type: 3}
+    - m_Name: Deltawalk left_1
+      m_Hash: 371516192
+      m_Sprite: {fileID: -1304641083242042023, guid: 7da437373d14c4dd995cb8d1eacfae44, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1304641083242042023, guid: 7da437373d14c4dd995cb8d1eacfae44, type: 3}
+    - m_Name: Deltawalk left_2
+      m_Hash: 254653082
+      m_Sprite: {fileID: 8444142007406586415, guid: 7da437373d14c4dd995cb8d1eacfae44, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8444142007406586415, guid: 7da437373d14c4dd995cb8d1eacfae44, type: 3}
+    - m_Name: Deltawalk left_3
+      m_Hash: 942309900
+      m_Sprite: {fileID: -7963970109657597366, guid: 7da437373d14c4dd995cb8d1eacfae44, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7963970109657597366, guid: 7da437373d14c4dd995cb8d1eacfae44, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 4
+  - m_Name: Deltasword
+    m_Hash: 572761702
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Deltasword_0
+      m_Hash: 372362007
+      m_Sprite: {fileID: -6036148626262825978, guid: 30ab4f111bf014ed3a6187083d3704b9, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6036148626262825978, guid: 30ab4f111bf014ed3a6187083d3704b9, type: 3}
+    - m_Name: Deltasword_1
+      m_Hash: 557251457
+      m_Sprite: {fileID: 3870430066213561386, guid: 30ab4f111bf014ed3a6187083d3704b9, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3870430066213561386, guid: 30ab4f111bf014ed3a6187083d3704b9, type: 3}
+    - m_Name: Deltasword_2
+      m_Hash: 943696443
+      m_Sprite: {fileID: -4186789409950915450, guid: 30ab4f111bf014ed3a6187083d3704b9, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4186789409950915450, guid: 30ab4f111bf014ed3a6187083d3704b9, type: 3}
+    - m_Name: Deltasword_3
+      m_Hash: 255367853
+      m_Sprite: {fileID: -5542262574221593068, guid: 30ab4f111bf014ed3a6187083d3704b9, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5542262574221593068, guid: 30ab4f111bf014ed3a6187083d3704b9, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 4
+  - m_Name: Deltasword back
+    m_Hash: 417067930
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Deltasword back_0
+      m_Hash: 892992037
+      m_Sprite: {fileID: -3613739952983198131, guid: 45b9ea19d6d234685b927d9235da54f3, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3613739952983198131, guid: 45b9ea19d6d234685b927d9235da54f3, type: 3}
+    - m_Name: Deltasword back_1
+      m_Hash: 37669555
+      m_Sprite: {fileID: -6430032027867200101, guid: 45b9ea19d6d234685b927d9235da54f3, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6430032027867200101, guid: 45b9ea19d6d234685b927d9235da54f3, type: 3}
+    - m_Name: Deltasword back_2
+      m_Hash: 456629001
+      m_Sprite: {fileID: 9023757930223301588, guid: 45b9ea19d6d234685b927d9235da54f3, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 9023757930223301588, guid: 45b9ea19d6d234685b927d9235da54f3, type: 3}
+    - m_Name: Deltasword back_3
+      m_Hash: 741387167
+      m_Sprite: {fileID: -4786758727926186544, guid: 45b9ea19d6d234685b927d9235da54f3, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4786758727926186544, guid: 45b9ea19d6d234685b927d9235da54f3, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 4
+  - m_Name: Deltasword left
+    m_Hash: 259184069
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Deltasword left_0
+      m_Hash: 437725674
+      m_Sprite: {fileID: -3416583753597462699, guid: f5b5dc760fd194bbbae7b9030914963d, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3416583753597462699, guid: f5b5dc760fd194bbbae7b9030914963d, type: 3}
+    - m_Name: Deltasword left_1
+      m_Hash: 756029820
+      m_Sprite: {fileID: -3014139927281482614, guid: f5b5dc760fd194bbbae7b9030914963d, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3014139927281482614, guid: f5b5dc760fd194bbbae7b9030914963d, type: 3}
+    - m_Name: Deltasword left_2
+      m_Hash: 874072262
+      m_Sprite: {fileID: -6712431813660237264, guid: f5b5dc760fd194bbbae7b9030914963d, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6712431813660237264, guid: f5b5dc760fd194bbbae7b9030914963d, type: 3}
+    - m_Name: Deltasword left_3
+      m_Hash: 52328528
+      m_Sprite: {fileID: -9176238797170095662, guid: f5b5dc760fd194bbbae7b9030914963d, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -9176238797170095662, guid: f5b5dc760fd194bbbae7b9030914963d, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 4
+  - m_Name: Deltasword right
+    m_Hash: 479772531
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Deltasword right_0
+      m_Hash: 99613560
+      m_Sprite: {fileID: 1296566351102334786, guid: 97706ba79524f46dbb82d3e105221f80, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1296566351102334786, guid: 97706ba79524f46dbb82d3e105221f80, type: 3}
+    - m_Name: Deltasword right_1
+      m_Hash: 854117358
+      m_Sprite: {fileID: 5880390794089708671, guid: 97706ba79524f46dbb82d3e105221f80, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5880390794089708671, guid: 97706ba79524f46dbb82d3e105221f80, type: 3}
+    - m_Name: Deltasword right_2
+      m_Hash: 736205396
+      m_Sprite: {fileID: 7921086848663805322, guid: 97706ba79524f46dbb82d3e105221f80, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7921086848663805322, guid: 97706ba79524f46dbb82d3e105221f80, type: 3}
+    - m_Name: Deltasword right_3
+      m_Hash: 484879042
+      m_Sprite: {fileID: -5910458167322803916, guid: 97706ba79524f46dbb82d3e105221f80, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5910458167322803916, guid: 97706ba79524f46dbb82d3e105221f80, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 4
+  m_PrimaryLibraryGUID: 
+  m_ModificationHash: 638796239429090890
+  m_Version: 1
