@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public Transform RespawnPoint;
     private float moveX;
     private float moveY;
+    private Animator animator;
     private Rigidbody2D rb2d;
     public float speed = 4.5f;
 
@@ -53,6 +54,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void OnMove(InputValue movementValue) {
@@ -65,6 +67,8 @@ public class PlayerController : MonoBehaviour
         // Movement
         if (doorMenu.gameObject.activeSelf == true) {
             rb2d.linearVelocity = Vector2.zero;
+            animator.SetBool("IsMoving", false);
+            return;
         }
         else {
         Vector2 movement = new Vector2(moveX, moveY);
@@ -74,6 +78,26 @@ public class PlayerController : MonoBehaviour
         // Attack
         if (Input.GetButtonDown("Fire1") && hasSword == true) {
             //play attack sound and animation
+
+            animator.SetTrigger("Attack");
+        }
+
+        // Animation movement parameters
+        animator.SetFloat("MoveX", moveX);
+        animator.SetFloat("MoveY", moveY);
+
+        animator.SetBool("IsMoving", moveX != 0 || moveY != 0);
+
+        //Sets HasSword parameter if player has sword
+        animator.SetBool("HasSword", hasSword);
+    }
+
+    void FixedUpdate()
+    {
+        if (doorMenu.gameObject.activeSelf == false)
+        {
+            Vector2 movement = new Vector2(moveX, moveY);
+            rb2d.linearVelocity = movement * speed;
         }
     }
 
@@ -101,6 +125,14 @@ public class PlayerController : MonoBehaviour
          else if (pickup.gameObject.CompareTag("Heart")) {
             gainHealth();
         }
+
+        // Sword
+        else if (pickup.gameObject.CompareTag("Sword"))
+        {
+            pickup.gameObject.SetActive(false);
+            hasSword = true;
+        }
+            
     }
 
     void OnCollisionEnter2D (Collision2D other) {

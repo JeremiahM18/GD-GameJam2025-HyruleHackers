@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      triforce_lava_0: -8075336263383112753
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
