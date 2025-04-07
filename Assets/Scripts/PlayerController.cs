@@ -1,11 +1,10 @@
 /*
 Notes
 ******* Audio Sources[] *******
-0 = door sound
-1 = sword slash
-2 = lose health
-3 = gain health
-4 = death
+0 = sword slash
+1 = lose health
+2 = gain health
+3 = death
 
 *******
 */
@@ -27,7 +26,7 @@ public class PlayerController : MonoBehaviour
     public int lifeCount = 4;
 
     private bool hasSword = false;
-    private int keyCount = 0; // forest >=1, ice >= 2, lava >= 3
+    private int keyCount = 1; // forest >=1, ice >= 2, lava >= 3
     private bool hasFireTriangle = false;
     private bool hasIceTriangle = false;
     private bool hasForestTriangle = false;
