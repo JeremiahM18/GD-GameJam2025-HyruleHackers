@@ -159,6 +159,7 @@ public class PlayerController : MonoBehaviour
         else if (pickup.gameObject.CompareTag("IceTriangle")) {
             hasIceTriangle = true;
             pickup.gameObject.SetActive(false);
+            ShowMessage("You found the Ice Triangle!");
         }
         // Forest Triangle
         else if (pickup.gameObject.CompareTag("ForestTriangle")) {
