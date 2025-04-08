@@ -6,10 +6,10 @@ public class CameraController : MonoBehaviour
     private Vector3 offset;
 
     // Camera boundaries
-    public float minX;
-    public float maxX;
-    public float minY;
-    public float maxY;
+    //public float minX;
+    //public float maxX;
+    //public float minY;
+    //public float maxY;
  
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

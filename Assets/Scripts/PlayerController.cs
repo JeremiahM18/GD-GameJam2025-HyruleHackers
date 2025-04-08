@@ -83,6 +83,12 @@ public class PlayerController : MonoBehaviour
         key.SetActive(false);
     }
 
+    IEnumerator FollowUpMessage(string followUpText, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        ShowMessage(followUpText);
+    }
+
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -160,6 +166,7 @@ public class PlayerController : MonoBehaviour
             hasIceTriangle = true;
             pickup.gameObject.SetActive(false);
             ShowMessage("You found the Ice Triangle!");
+            StartCoroutine(FollowUpMessage("You're almost there!", 2f));
         }
         // Forest Triangle
         else if (pickup.gameObject.CompareTag("ForestTriangle")) {
