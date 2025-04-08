@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8679970776807856354
+--- !u!1 &7257696114944928045
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,37 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7406801606817863999}
-  - component: {fileID: 6563474565707646623}
+  - component: {fileID: 3050101005463690509}
+  - component: {fileID: 8034634075176145603}
+  - component: {fileID: 3807043713424155764}
   m_Layer: 0
-  m_Name: altar 2_0
+  m_Name: Pedestal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7406801606817863999
+--- !u!4 &3050101005463690509
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8679970776807856354}
+  m_GameObject: {fileID: 7257696114944928045}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.79485536, y: 0.17699023, z: -0.059881788}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &6563474565707646623
+--- !u!212 &8034634075176145603
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8679970776807856354}
+  m_GameObject: {fileID: 7257696114944928045}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 968807612723038221, guid: 21a9d19dcbfda44e58c89c83237e7388, type: 3}
+  m_Sprite: {fileID: -3736096582558125098, guid: 7188a55b991e34b71b53744d6215becc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -87,3 +88,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3807043713424155764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7257696114944928045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51173046992190a4986fcc60b2b251e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireGemSlot: {fileID: 531840111273060305, guid: a13ee2f79e4f9654d9f3c2b0a9fc8b14, type: 3}
+  iceGemSlot: {fileID: 8489677247412064321, guid: bc2387159425d044b9bdaf1bd006462c, type: 3}
+  forestGemSlot: {fileID: 4993734912885730388, guid: c7a27e897c456b342a1c9d067a3a1f6d, type: 3}
+  spriteRenderer: {fileID: 8034634075176145603}
+  alter0Gems: {fileID: -3736096582558125098, guid: 7188a55b991e34b71b53744d6215becc, type: 3}
+  alter1Gems: {fileID: -1297247760115865923, guid: 1c7ec14caa064490abc49fe8178fdadb, type: 3}
+  alter2Gems: {fileID: 968807612723038221, guid: 21a9d19dcbfda44e58c89c83237e7388, type: 3}
+  alter3Gems: {fileID: 7186171042926826241, guid: 20a7ad31237ef4735b94f32d6f4cbc16, type: 3}
+  litGemSprite: {fileID: 0}

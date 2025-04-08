@@ -6,11 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<<< HEAD:Assets/Animations/Chest Animation/ChestOpen.anim
-  m_Name: ChestOpen
-========
-  m_Name: Button_Up
->>>>>>>> 1b75a0133d6cd9dc28cb7e8e0ebe1aff097cf837:Assets/Animations/Button_Anim/Button_Up.anim
+  m_Name: Button_down
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -25,11 +21,7 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-<<<<<<<< HEAD:Assets/Animations/Chest Animation/ChestOpen.anim
-      value: {fileID: 9067068299393455667, guid: fb56d6b2bd2b14fbe888d96dd104322f, type: 3}
-========
-      value: {fileID: 1706731217923313833, guid: c372f92ea00b34d0cb5430d28cb20eb3, type: 3}
->>>>>>>> 1b75a0133d6cd9dc28cb7e8e0ebe1aff097cf837:Assets/Animations/Button_Anim/Button_Up.anim
+      value: {fileID: 8371362285786240412, guid: 44512d83bc06041739ddd7bb4978dd39, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -52,11 +44,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-<<<<<<<< HEAD:Assets/Animations/Chest Animation/ChestOpen.anim
-    - {fileID: 9067068299393455667, guid: fb56d6b2bd2b14fbe888d96dd104322f, type: 3}
-========
-    - {fileID: 1706731217923313833, guid: c372f92ea00b34d0cb5430d28cb20eb3, type: 3}
->>>>>>>> 1b75a0133d6cd9dc28cb7e8e0ebe1aff097cf837:Assets/Animations/Button_Anim/Button_Up.anim
+    - {fileID: 8371362285786240412, guid: 44512d83bc06041739ddd7bb4978dd39, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
