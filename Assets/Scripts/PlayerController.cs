@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     private float moveX;
     private float moveY;
     private Animator animator;
+    private Animator chestAnim;
     private Rigidbody2D rb2d;
     public float speed = 4.5f;
 
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour
     public GameObject doorMenu;
     public GameObject hasKey;
     public GameObject locked;
+    public GameObject key;
 
     // Coin Collect
     private int triangleCoins = 0;
@@ -74,6 +76,13 @@ public class PlayerController : MonoBehaviour
             messageText.transform.parent.gameObject.SetActive(false);  
         }
     }
+
+    IEnumerator HideKey()
+    {
+        yield return new WaitForSeconds(1.5f);
+        key.SetActive(false);
+    }
+
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -88,6 +97,11 @@ public class PlayerController : MonoBehaviour
         if (messageText != null && messageText.transform.parent != null)
         {
             messageText.transform.parent.gameObject.SetActive(false);
+        }
+
+        if (key != null)
+        {
+            key.SetActive(false);
         }
     }
 
@@ -215,14 +229,21 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.CompareTag("Chest"))
         {
-            Animator chestAnim = other.gameObject.GetComponent<Animator>();
+            chestAnim = other.gameObject.GetComponent<Animator>();
             if (chestAnim != null)
             {
                 chestAnim.SetTrigger("Open");
-                kwyIcon[keyCount].gameObject.SetActive(true);
+                // if (keyCount < keyIcon.Length)
+                // {
+                    keyIcon[keyCount].gameObject.SetActive(true);
+                // }
+                key.SetActive(true);
                 keyCount = keyCount + 1;
+
+                ShowMessage("Yay! You found a key!");
+
+                StartCoroutine(HideKey());
             }
-            ShowMessage("Yay! You found a key!");
         }
     }
 
