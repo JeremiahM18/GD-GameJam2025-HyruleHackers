@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8439756360534262038}
   - component: {fileID: 2177066768877952487}
   - component: {fileID: 4313372163662685596}
+  - component: {fileID: 3254678842070720255}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -103,6 +104,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c112cbb7598c4819a2314c07b4c9037, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  instructionsPanel: {fileID: 0}
+  timerBehavior: {fileID: 0}
   RespawnPoint: {fileID: 0}
   speed: 2
   lifeCount: 4
@@ -229,3 +232,25 @@ PolygonCollider2D:
       - {x: 0.052741107, y: 0.016022932}
       - {x: 0.061794106, y: 0.039895244}
   m_UseDelaunayMesh: 0
+--- !u!95 &3254678842070720255
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6943290460798089686}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 13f78766f750b421eb24c49219ff1ebf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

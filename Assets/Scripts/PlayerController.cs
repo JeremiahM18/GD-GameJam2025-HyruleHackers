@@ -121,7 +121,7 @@ public class PlayerController : MonoBehaviour
             keyCount = keyCount + 1;
         }
         // Fire Triangle
-        else if (pickup.gameObject.CompareTag("Firetriangle")) {
+        else if (pickup.gameObject.CompareTag("FireTriangle")) {
             hasFireTriangle = true;
         }
         // Ice Triangle
