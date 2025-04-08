@@ -172,7 +172,7 @@ public class PlayerController : MonoBehaviour
         else if (pickup.gameObject.CompareTag("IceTriangle")) {
             hasIceTriangle = true;
             pickup.gameObject.SetActive(false);
-            ShowMessage("You found the Ice Triangle!");
+            ShowMessage("the shard of Intellect!");
             StartCoroutine(FollowUpMessage("You're almost there!", 2f));
         }
         // Forest Triangle
