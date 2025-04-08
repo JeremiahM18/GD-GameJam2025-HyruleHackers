@@ -31,21 +31,26 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     private Animator chestAnim;
     private Rigidbody2D rb2d;
-    public float speed = 4.5f;
+    public float speed = 1.0f;
 
-    public int lifeCount = 3;
-    public GameObject[] lifeIcon;
-    public GameObject[] keyIcon;
+    public static int lifeCount = 3;
+    public static GameObject[] lifeIcon;
+    public static GameObject[] keyIcon;
 
-    private bool hasSword = false;
-    private int keyCount = 0; // forest >=1, ice >= 2, lava >= 3
-    private bool hasFireTriangle = false;
-    private bool hasIceTriangle = false;
-    private bool hasForestTriangle = false;
+    private static bool hasSword = false;
+    private static int keyCount = 0; // forest >=1, ice >= 2, lava >= 3
+    private static bool hasFireTriangle = false;
+    private static bool hasIceTriangle = false;
+    private static bool hasForestTriangle = false;
+
+    public GameObject PauseMenu;
 
     // Door Menu
     public GameObject doorMenu;
     public GameObject hasKey;
+    public GameObject hasForestKey;
+    public GameObject hasIceKey;
+    public GameObject hasFireKey;
     public GameObject locked;
     public GameObject key;
 
@@ -151,6 +156,13 @@ public class PlayerController : MonoBehaviour
 
         //Sets HasSword parameter if player has sword
         animator.SetBool("HasSword", hasSword);
+
+        //Pause
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            // GameObject.FindGameObjectWithTag("Enemy").GetComponent<BasicEnemy>().SetActive(false);
+            GetComponent<PlayerController>().gameObject.SetActive(false);
+            PauseMenu.gameObject.SetActive(true);
+        }
     }
 
     void FixedUpdate()
@@ -167,6 +179,7 @@ public class PlayerController : MonoBehaviour
         // Fire Triangle
         if (pickup.gameObject.CompareTag("FireTriangle")) {
             hasFireTriangle = true;
+            pickup.gameObject.SetActive(false);
         }
         // Ice Triangle
         else if (pickup.gameObject.CompareTag("IceTriangle")) {
@@ -178,6 +191,7 @@ public class PlayerController : MonoBehaviour
         // Forest Triangle
         else if (pickup.gameObject.CompareTag("ForestTriangle")) {
             hasForestTriangle = true;
+            pickup.gameObject.SetActive(false);
         }
 
         // Heart
@@ -313,7 +327,7 @@ public class PlayerController : MonoBehaviour
 
     void gainHealth() {
         PlaySound(2);
-        // add a life icon
+        lifeIcon[lifeCount].gameObject.SetActive(true);
         lifeCount = lifeCount + 1;
     }
 
