@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class DDOL : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
-    public static DDOL Instance;
+    public static PlayerManager Instance;
     
     private void Awake() {
     if (Instance != null)

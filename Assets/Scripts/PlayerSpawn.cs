@@ -10,22 +10,25 @@ public class PlayerSpawn : MonoBehaviour
     public GameObject innerSpawnIce;
     public GameObject innerSpawnLava;
 
-    private Vector2 playerPos;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        playerPos = player.transform.position;
 
         if (player != null) {
             if (SceneManager.GetActiveScene().name == "ForestRoom") {
-                playerPos = forestSpawn.transform.position;
+                player.transform.position = forestSpawn.transform.position;
             } else if (SceneManager.GetActiveScene().name == "IceRoom") {
-                playerPos = iceSpawn.transform.position;
+                player.transform.position = iceSpawn.transform.position;
             } else if (SceneManager.GetActiveScene().name == "LavaRoom") {
-                playerPos = lavaSpawn.transform.position;
-            }
+                player.transform.position = lavaSpawn.transform.position;
+            } else if (SceneManager.GetActiveScene().name == "InnerRoom" && player.transform.position.x > 3f) {
+                player.transform.position = innerSpawnForest.transform.position;
+            } else if (SceneManager.GetActiveScene().name == "InnerRoom" && player.transform.position.x < -3f) {
+                player.transform.position = innerSpawnIce.transform.position;
+            } else if (SceneManager.GetActiveScene().name == "InnerRoom" && player.transform.position.y < -2f) {
+                player.transform.position = innerSpawnIce.transform.position;
+            } 
         }
     }
 }

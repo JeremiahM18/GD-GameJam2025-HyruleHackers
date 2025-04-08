@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     public GameObject[] keyIcon;
 
     private bool hasSword = false;
-    private int keyCount = 1; // forest >=1, ice >= 2, lava >= 3
+    private int keyCount = 0; // forest >=1, ice >= 2, lava >= 3
     private bool hasFireTriangle = false;
     private bool hasIceTriangle = false;
     private bool hasForestTriangle = false;

@@ -15,8 +15,9 @@ public class CameraController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+        transform.position = new Vector3 (player.transform.position.x, player.transform.position.y, -10);
         offset = transform.position - player.transform.position;
-
     }
 
     // Update is called once per frame
