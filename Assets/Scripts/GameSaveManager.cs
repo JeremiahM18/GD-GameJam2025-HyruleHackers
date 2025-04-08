@@ -20,7 +20,8 @@ public class GameSaveManager : MonoBehaviour
 
     public void SaveData(PlayerController player)
     {
-        PlayerPrefs.SetInt("LifeCount", player.lifeCount);
+        // PlayerPrefs.SetInt("LifeCount", player.lifeCount);
+        // PlayerPrefs.SetInt("KeyCount", player.keyCount);
         PlayerPrefs.SetInt("Coins", player.GetCoinCount());
 
         PlayerPrefs.SetInt("FireGem", player.HasFireGem() ? 1 : 0);
@@ -30,7 +31,8 @@ public class GameSaveManager : MonoBehaviour
 
     public void LoadData(PlayerController player)
     {
-        player.lifeCount = PlayerPrefs.GetInt("LifeCount", 4);
+        // player.lifeCount = PlayerPrefs.GetInt("LifeCount", 3);
+        // player.lifeCount = PlayerPrefs.GetInt("KeyCount", 1);
         player.SetCoinCount(PlayerPrefs.GetInt("Coins", 0));
 
         player.SetGemState("fire", PlayerPrefs.GetInt("FireGem", 0) == 1);

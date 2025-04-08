@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class TimerBehavior : MonoBehaviour
 {
-    public GameObject player;
+    // public GameObject player;
+    private GameObject player;
     public Transform RespawnPoint;
     private float timer;
     public TextMeshProUGUI textField;
@@ -12,6 +13,7 @@ public class TimerBehavior : MonoBehaviour
 
     void Start()
     { 
+        player = GameObject.FindGameObjectWithTag("Player");
         if (textField == null)
         {
             Debug.Log("No TextMeshProUGUI component found.");

@@ -20,12 +20,13 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
-    public GameObject instructionsPanel; 
+    public GameObject instructionsPanel;
     private bool isPausedForInstructions = false;
 
     public TimerBehavior timerBehavior;
     public TMP_Text messageText;
-    public Transform RespawnPoint;
+    // public Transform RespawnPoint;
+    private Vector2 RespawnPoint;
     private float moveX;
     private float moveY;
     private Animator animator;
@@ -34,8 +35,8 @@ public class PlayerController : MonoBehaviour
     public float speed = 1.0f;
 
     public static int lifeCount = 3;
-    public static GameObject[] lifeIcon;
-    public static GameObject[] keyIcon;
+    public GameObject[] lifeIcon;
+    public GameObject[] keyIcon;
 
     private static bool hasSword = false;
     private static int keyCount = 0; // forest >=1, ice >= 2, lava >= 3
@@ -50,7 +51,7 @@ public class PlayerController : MonoBehaviour
     public GameObject hasKey;
     public GameObject hasForestKey;
     public GameObject hasIceKey;
-    public GameObject hasFireKey;
+    public GameObject hasLavaKey;
     public GameObject locked;
     public GameObject key;
 
@@ -121,6 +122,9 @@ public class PlayerController : MonoBehaviour
         {
             key.SetActive(false);
         }
+
+        // IceRoom Respawn
+        RespawnPoint = new Vector2(-4.0f, 0);
     }
 
     void OnMove(InputValue movementValue) {
@@ -160,7 +164,7 @@ public class PlayerController : MonoBehaviour
         //Pause
         if (Input.GetKeyDown(KeyCode.Escape)) {
             // GameObject.FindGameObjectWithTag("Enemy").GetComponent<BasicEnemy>().SetActive(false);
-            GetComponent<PlayerController>().gameObject.SetActive(false);
+            GetComponent<PlayerController>().enabled = false;
             PauseMenu.gameObject.SetActive(true);
         }
     }
@@ -214,7 +218,7 @@ public class PlayerController : MonoBehaviour
                 doorMenu.SetActive(true);
                 if (keyCount >= 1) {
                     // hasKey = GameObject.Find("HasForestKey");
-                    hasKey.SetActive(true);
+                    hasForestKey.SetActive(true);
                 } else {
                     StartCoroutine(doorLocked());
                 }
@@ -222,7 +226,7 @@ public class PlayerController : MonoBehaviour
         else if (other.gameObject.CompareTag("IceDoor")) {
             doorMenu.SetActive(true);
                 if (keyCount >= 2) {
-                    hasKey.SetActive(true);
+                    hasIceKey.SetActive(true);
                 } else {
                     StartCoroutine(doorLocked());
                 }
@@ -230,7 +234,7 @@ public class PlayerController : MonoBehaviour
         else if (other.gameObject.CompareTag("LavaDoor")) {
             doorMenu.SetActive(true);
                 if (keyCount >= 3) {
-                    hasKey.SetActive(true);
+                    hasLavaKey.SetActive(true);
                 } else {
                     StartCoroutine(doorLocked());
                 }
@@ -247,7 +251,8 @@ public class PlayerController : MonoBehaviour
 
         else if (other.gameObject.CompareTag("IcicleWall"))
         {
-            transform.position = RespawnPoint.position;
+            // transform.position = RespawnPoint.position;
+            transform.position = RespawnPoint;
             loseHealth();
 
             if (timerBehavior != null)
