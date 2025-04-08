@@ -17,6 +17,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameObject instructionsPanel; 
+    private bool isPausedForInstructions = false;
+
+    public TimerBehavior timerBehavior;
     public Transform RespawnPoint;
     private float moveX;
     private float moveY;
@@ -55,6 +59,12 @@ public class PlayerController : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        if (SceneManager.GetActiveScene().name == "IceRoom")
+        {
+            isPausedForInstructions = true;
+            instructionsPanel.SetActive(true); // Show your instructions popup
+        }
     }
 
     void OnMove(InputValue movementValue) {
@@ -65,7 +75,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // Movement
-        if (doorMenu.gameObject.activeSelf == true) {
+        if (isPausedForInstructions || doorMenu.gameObject.activeSelf == true) {
             rb2d.linearVelocity = Vector2.zero;
             animator.SetBool("IsMoving", false);
             return;
@@ -94,7 +104,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (doorMenu.gameObject.activeSelf == false)
+        if (isPausedForInstructions || doorMenu.gameObject.activeSelf == false)
         {
             Vector2 movement = new Vector2(moveX, moveY);
             rb2d.linearVelocity = movement * speed;
@@ -163,6 +173,7 @@ public class PlayerController : MonoBehaviour
                 }
         }
         else if (other.gameObject.CompareTag("Door")) {
+            doorMenu.SetActive(true);
             hasKey.SetActive(true);
         }
 
@@ -175,8 +186,30 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = RespawnPoint.position;
             loseHealth();
+
+            if (timerBehavior != null)
+            {
+                timerBehavior.RestartTimer();
+            }
         }
     }
+
+    public void ContinueFromInstructions()
+    {
+        animator.enabled = true;
+        isPausedForInstructions = false;
+        instructionsPanel.SetActive(false);
+        if (timerBehavior != null) timerBehavior.isPaused = true;
+
+        if (timerBehavior != null)
+        {
+            timerBehavior.isPaused = false;
+            timerBehavior.RestartTimer();
+        }
+        
+
+    }
+
 
     void loseHealth() {
         // play hurt sound and animation

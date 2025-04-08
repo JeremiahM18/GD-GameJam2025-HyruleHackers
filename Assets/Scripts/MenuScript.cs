@@ -10,7 +10,7 @@ public class MenuScript : MonoBehaviour
         yield return new WaitForSeconds(source.clip.length); // wait for sound to finish
         SceneManager.LoadScene(sceneName); // Load next scene
     }
-    
+
     public void gotoGame() {
         StartCoroutine(WaitForSoundAndTransition("InnerRoom"));
     }

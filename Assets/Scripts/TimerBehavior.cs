@@ -7,8 +7,9 @@ public class TimerBehavior : MonoBehaviour
     public Transform RespawnPoint;
     private float timer;
     public TextMeshProUGUI textField;
+    private bool hasRespawned = false;
+    public bool isPaused = false;
 
-    
     void Start()
     { 
         if (textField == null)
@@ -16,22 +17,26 @@ public class TimerBehavior : MonoBehaviour
             Debug.Log("No TextMeshProUGUI component found.");
         }
 
-        timer = 45f;
+        timer = 120f;
         UpdateTimerText();
     }
 
     void Update()
     {
+        if (isPaused) return;
+
         if (timer > 0)
         {
             timer -= Time.deltaTime;
         }
 
-        if (timer <= 0)
+        if (timer <= 0 && !hasRespawned)
         {
             timer = 0;
-            player.transform.position = RespawnPoint.position;
+            hasRespawned = true;
 
+            player.transform.position = RespawnPoint.position;
+            RestartTimer();
         }
 
         UpdateTimerText();
@@ -41,17 +46,19 @@ public class TimerBehavior : MonoBehaviour
     {
         int minutes = (int)timer / 60;
         int seconds = (int)timer % 60;
-        string message = string.Format("Time: {0:00}:{1:00}", minutes, seconds);
+        string message = string.Format("Timer: {0:00}:{1:00}", minutes, seconds);
         textField.text = message;
     }
 
     public void StartTimer(float time)
     {
-        timer = time; 
+        timer = time;
     }
 
     public void RestartTimer()
     {
-        timer = 45f;
+        timer = 120f;
+        hasRespawned = false;
     }
+
 }
