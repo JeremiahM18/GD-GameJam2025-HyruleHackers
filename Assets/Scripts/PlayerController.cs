@@ -57,7 +57,13 @@ public class PlayerController : MonoBehaviour
         doorMenu.SetActive(false);
     }
 
-    void Start()
+    IEnumerator Death()
+    {
+        animator.SetTrigger("Death");
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene("GameOver");
+    }
+        void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -67,6 +73,7 @@ public class PlayerController : MonoBehaviour
             isPausedForInstructions = true;
             instructionsPanel.SetActive(true); // Show your instructions popup
         }
+       
     }
 
     void OnMove(InputValue movementValue) {
@@ -216,9 +223,10 @@ public class PlayerController : MonoBehaviour
         lifeIcon[lifeCount - 1].gameObject.SetActive(false);
         lifeCount = lifeCount - 1;
             if (lifeCount == 0) {
-                // play death sound and animation
-                // fade screen to black
-                SceneManager.LoadScene("GameOver");
+            animator.SetTrigger("Death");
+            // play death sound 
+            // fade screen to black
+            StartCoroutine(Death());
             }
     }
 
