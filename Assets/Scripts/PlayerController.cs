@@ -43,6 +43,8 @@ public class PlayerController : MonoBehaviour
     private static bool hasIceTriangle = false;
     private static bool hasForestTriangle = false;
 
+    public GameObject PauseMenu;
+
     // Door Menu
     public GameObject doorMenu;
     public GameObject hasKey;
@@ -154,6 +156,13 @@ public class PlayerController : MonoBehaviour
 
         //Sets HasSword parameter if player has sword
         animator.SetBool("HasSword", hasSword);
+
+        //Pause
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            // GameObject.FindGameObjectWithTag("Enemy").GetComponent<BasicEnemy>().SetActive(false);
+            GetComponent<PlayerController>().gameObject.SetActive(false);
+            PauseMenu.gameObject.SetActive(true);
+        }
     }
 
     void FixedUpdate()
@@ -170,6 +179,7 @@ public class PlayerController : MonoBehaviour
         // Fire Triangle
         if (pickup.gameObject.CompareTag("FireTriangle")) {
             hasFireTriangle = true;
+            pickup.gameObject.SetActive(false);
         }
         // Ice Triangle
         else if (pickup.gameObject.CompareTag("IceTriangle")) {
@@ -181,6 +191,7 @@ public class PlayerController : MonoBehaviour
         // Forest Triangle
         else if (pickup.gameObject.CompareTag("ForestTriangle")) {
             hasForestTriangle = true;
+            pickup.gameObject.SetActive(false);
         }
 
         // Heart
@@ -316,7 +327,7 @@ public class PlayerController : MonoBehaviour
 
     void gainHealth() {
         PlaySound(2);
-        // add a life icon
+        lifeIcon[lifeCount].gameObject.SetActive(true);
         lifeCount = lifeCount + 1;
     }
 
