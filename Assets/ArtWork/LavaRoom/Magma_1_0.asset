@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Magma_1_0
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 925122086969148881, guid: 1310fd8c8d3c341ab9267665de9885e7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.101960786, g: 0.101960786, b: 0.101960786, a: 1}
   m_Transform:
     e00: 1
     e01: 0
@@ -32,5 +32,5 @@ MonoBehaviour:
     e32: 0
     e33: 1
   m_InstancedGameObject: {fileID: 0}
-  m_Flags: 1
+  m_Flags: 0
   m_ColliderType: 1
