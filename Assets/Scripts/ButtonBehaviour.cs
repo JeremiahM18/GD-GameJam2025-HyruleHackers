@@ -3,7 +3,6 @@ using UnityEngine;
 public class ButtonBehaviour : MonoBehaviour
 {
     private Animator anim;
-    private bool isDown;
     private AudioSource source;
     private Collider2D collider;
 
@@ -13,7 +12,6 @@ public class ButtonBehaviour : MonoBehaviour
         anim = GetComponent<Animator>();
         source = GetComponent<AudioSource>();
         collider = GetComponent<Collider2D>();
-        isDown = false;
     }
     
     void OnCollisionEnter2D(Collision2D other) {

@@ -137,18 +137,14 @@ public class PlayerController : MonoBehaviour
 
     // Handle all pick up items
     void OnTriggerEnter2D (Collider2D pickup) {
-        // Keys
-        if (pickup.gameObject.CompareTag("Key")) {
-            pickup.gameObject.SetActive(false);
-            keyCount = keyCount + 1;
-        }
         // Fire Triangle
-        else if (pickup.gameObject.CompareTag("FireTriangle")) {
+        if (pickup.gameObject.CompareTag("FireTriangle")) {
             hasFireTriangle = true;
         }
         // Ice Triangle
         else if (pickup.gameObject.CompareTag("IceTriangle")) {
             hasIceTriangle = true;
+            pickup.gameObject.SetActive(false);
         }
         // Forest Triangle
         else if (pickup.gameObject.CompareTag("ForestTriangle")) {
@@ -223,6 +219,7 @@ public class PlayerController : MonoBehaviour
             if (chestAnim != null)
             {
                 chestAnim.SetTrigger("Open");
+                kwyIcon[keyCount].gameObject.SetActive(true);
                 keyCount = keyCount + 1;
             }
             ShowMessage("Yay! You found a key!");
