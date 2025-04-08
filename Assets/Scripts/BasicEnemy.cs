@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class BasicEnemy : MonoBehaviour
@@ -8,8 +9,24 @@ public class BasicEnemy : MonoBehaviour
     private Vector2 direction;
     private float changeDirectionTimer = 2f;
 
+    // Enemy Animator
+    private Animator animator;
+
+    // Coroutine
+    private IEnumerator Die()
+    {
+        if (animator != null)
+        {
+            animator.SetTrigger("Death");
+        }
+
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
+    }
+
     private void Start()
     {
+        animator = GetComponent<Animator>();
         ChangeDirection();
     }
 
@@ -20,6 +37,13 @@ public class BasicEnemy : MonoBehaviour
         {
             ChangeDirection();
             changeDirectionTimer = 0f;
+        }
+
+        if (animator != null)
+        {
+            animator.SetFloat("MoveX", direction.x);
+            animator.SetFloat("MoveY", direction.y);
+            animator.SetBool("IsMoving", true);
         }
 
         transform.Translate(direction * moveSpeed * Time.deltaTime);
@@ -43,7 +67,7 @@ public class BasicEnemy : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            Destroy(gameObject);
+            StartCoroutine(Die());
         }
     }
 
@@ -51,7 +75,7 @@ public class BasicEnemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            // 
+            // player lose health and maybe damage sound?
         }
     }
 }
