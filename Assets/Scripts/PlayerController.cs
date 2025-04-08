@@ -184,18 +184,22 @@ public class PlayerController : MonoBehaviour
         if (pickup.gameObject.CompareTag("FireTriangle")) {
             hasFireTriangle = true;
             pickup.gameObject.SetActive(false);
+            ShowMessage("The shard of Intellect!");
         }
         // Ice Triangle
         else if (pickup.gameObject.CompareTag("IceTriangle")) {
             hasIceTriangle = true;
             pickup.gameObject.SetActive(false);
-            ShowMessage("the shard of Intellect!");
+            ShowMessage("The shard of Intellect!");
             StartCoroutine(FollowUpMessage("You're almost there!", 2f));
         }
         // Forest Triangle
         else if (pickup.gameObject.CompareTag("ForestTriangle")) {
             hasForestTriangle = true;
+            PlaySound(5);
             pickup.gameObject.SetActive(false);
+            ShowMessage("The shard of Creativity!");
+            StartCoroutine(FollowUpMessage("One more left!", 2f));
         }
 
         // Heart
