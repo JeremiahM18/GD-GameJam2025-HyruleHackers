@@ -28,7 +28,9 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb2d;
     public float speed = 4.5f;
 
-    public int lifeCount = 4;
+    public int lifeCount = 3;
+    public GameObject[] lifeIcon;
+    public GameObject[] keyIcon;
 
     private bool hasSword = false;
     private int keyCount = 1; // forest >=1, ice >= 2, lava >= 3
@@ -206,14 +208,12 @@ public class PlayerController : MonoBehaviour
             timerBehavior.isPaused = false;
             timerBehavior.RestartTimer();
         }
-        
-
     }
 
 
     void loseHealth() {
         // play hurt sound and animation
-        // remove a life icon
+        lifeIcon[lifeCount - 1].gameObject.SetActive(false);
         lifeCount = lifeCount - 1;
             if (lifeCount == 0) {
                 // play death sound and animation
