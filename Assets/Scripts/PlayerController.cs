@@ -31,21 +31,24 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     private Animator chestAnim;
     private Rigidbody2D rb2d;
-    public float speed = 4.5f;
+    public float speed = 1.0f;
 
-    public int lifeCount = 3;
-    public GameObject[] lifeIcon;
-    public GameObject[] keyIcon;
+    public static int lifeCount = 3;
+    public static GameObject[] lifeIcon;
+    public static GameObject[] keyIcon;
 
-    private bool hasSword = false;
-    private int keyCount = 0; // forest >=1, ice >= 2, lava >= 3
-    private bool hasFireTriangle = false;
-    private bool hasIceTriangle = false;
-    private bool hasForestTriangle = false;
+    private static bool hasSword = false;
+    private static int keyCount = 0; // forest >=1, ice >= 2, lava >= 3
+    private static bool hasFireTriangle = false;
+    private static bool hasIceTriangle = false;
+    private static bool hasForestTriangle = false;
 
     // Door Menu
     public GameObject doorMenu;
     public GameObject hasKey;
+    public GameObject hasForestKey;
+    public GameObject hasIceKey;
+    public GameObject hasFireKey;
     public GameObject locked;
     public GameObject key;
 

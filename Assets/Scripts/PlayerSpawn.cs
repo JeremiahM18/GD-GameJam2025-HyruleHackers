@@ -26,7 +26,7 @@ public class PlayerSpawn : MonoBehaviour
                 player.transform.position = innerSpawnForest.transform.position;
             } else if (SceneManager.GetActiveScene().name == "InnerRoom" && player.transform.position.x < -3f) {
                 player.transform.position = innerSpawnIce.transform.position;
-            } else if (SceneManager.GetActiveScene().name == "InnerRoom" && player.transform.position.y < -2f) {
+            } else if (SceneManager.GetActiveScene().name == "InnerRoom" && player.transform.position.y < -3f) {
                 player.transform.position = innerSpawnIce.transform.position;
             } 
         }
