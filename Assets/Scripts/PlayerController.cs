@@ -5,6 +5,8 @@ Notes
 1 = lose health
 2 = gain health
 3 = death
+4 = open chest
+5 = level solve
 
 *******
 */
@@ -50,6 +52,11 @@ public class PlayerController : MonoBehaviour
     // Coin Collect
     private int triangleCoins = 0;
     private const int maxCoins = 99;
+
+    // Sounds
+    public AudioClip[] soundClips; 
+    public AudioSource audioSource; 
+
 
     // Coroutines
 
@@ -132,7 +139,7 @@ public class PlayerController : MonoBehaviour
         // Attack
         if (Input.GetButtonDown("Fire1") && hasSword == true) {
             //play attack sound and animation
-
+            PlaySound(0);
             animator.SetTrigger("Attack");
         }
 
@@ -245,6 +252,7 @@ public class PlayerController : MonoBehaviour
                 // {
                     keyIcon[keyCount].gameObject.SetActive(true);
                 // }
+                PlaySound(4);
                 key.SetActive(true);
                 keyCount = keyCount + 1;
 
@@ -281,8 +289,18 @@ public class PlayerController : MonoBehaviour
 
         }
     }
-            void loseHealth() {
-        // play hurt sound and animation
+
+    void PlaySound(int soundIndex)
+    {
+        if (soundIndex >= 0 && soundIndex < soundClips.Length)
+        {
+            audioSource.clip = soundClips[soundIndex];
+            audioSource.Play();  // Play selected sound
+        }
+    }
+
+        void loseHealth() {
+        PlaySound(1);
         lifeIcon[lifeCount - 1].gameObject.SetActive(false);
         lifeCount = lifeCount - 1;
             if (lifeCount == 0) {
@@ -294,7 +312,7 @@ public class PlayerController : MonoBehaviour
     }
 
     void gainHealth() {
-        // play sound + maybe animation?
+        PlaySound(2);
         // add a life icon
         lifeCount = lifeCount + 1;
     }
