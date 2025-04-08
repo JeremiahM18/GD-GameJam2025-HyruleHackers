@@ -272,13 +272,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Deltadeath_0: -6871996649237935144
-      Deltadeath_1: -4979614096761511533
-      Deltadeath_2: -6226035419966440138
-      Deltadeath_3: 6284174393131080615
-      Deltadeath_4: -1851660769863825110
-      Deltadeath_5: 2674707257111278555
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
