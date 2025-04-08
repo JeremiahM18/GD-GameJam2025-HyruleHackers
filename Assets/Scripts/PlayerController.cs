@@ -117,6 +117,7 @@ public class PlayerController : MonoBehaviour
     void OnTriggerEnter2D (Collider2D pickup) {
         // Keys
         if (pickup.gameObject.CompareTag("Key")) {
+            keyIcon[keyCount].gameObject.SetActive(true);
             pickup.gameObject.SetActive(false);
             keyCount = keyCount + 1;
         }
@@ -131,6 +132,7 @@ public class PlayerController : MonoBehaviour
         // Forest Triangle
         else if (pickup.gameObject.CompareTag("ForestTriangle")) {
             hasForestTriangle = true;
+            pickup.gameObject.SetActive(false);
         }
 
         // Heart
@@ -152,7 +154,6 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("ForestDoor")) {
                 doorMenu.SetActive(true);
                 if (keyCount >= 1) {
-                    // hasKey = GameObject.Find("HasForestKey");
                     hasKey.SetActive(true);
                 } else {
                     StartCoroutine(doorLocked());
