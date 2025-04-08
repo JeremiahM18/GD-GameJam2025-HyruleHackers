@@ -14,6 +14,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private bool isPausedForInstructions = false;
 
     public TimerBehavior timerBehavior;
+    public TMP_Text messageText;
     public Transform RespawnPoint;
     private float moveX;
     private float moveY;
@@ -63,7 +65,16 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene("GameOver");
     }
-        void Start()
+
+    IEnumerator HideMessageAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);  
+        if (messageText != null && messageText.transform.parent != null)
+        {
+            messageText.transform.parent.gameObject.SetActive(false);  
+        }
+    }
+    void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -73,7 +84,11 @@ public class PlayerController : MonoBehaviour
             isPausedForInstructions = true;
             instructionsPanel.SetActive(true); // Show your instructions popup
         }
-       
+
+        if (messageText != null && messageText.transform.parent != null)
+        {
+            messageText.transform.parent.gameObject.SetActive(false);
+        }
     }
 
     void OnMove(InputValue movementValue) {
@@ -201,6 +216,17 @@ public class PlayerController : MonoBehaviour
                 timerBehavior.RestartTimer();
             }
         }
+
+        if (other.gameObject.CompareTag("Chest"))
+        {
+            Animator chestAnim = other.gameObject.GetComponent<Animator>();
+            if (chestAnim != null)
+            {
+                chestAnim.SetTrigger("Open");
+                keyCount = keyCount + 1;
+            }
+            ShowMessage("Yay! You found a key!");
+        }
     }
 
     public void ContinueFromInstructions()
@@ -217,8 +243,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void ShowMessage(string message)
+    {
+        if (messageText != null && messageText.transform.parent != null)
+        {
+            messageText.text = message;
+            messageText.transform.parent.gameObject.SetActive(true);
 
-    void loseHealth() {
+
+            StartCoroutine(HideMessageAfterDelay(3f));
+
+        }
+    }
+            void loseHealth() {
         // play hurt sound and animation
         lifeIcon[lifeCount - 1].gameObject.SetActive(false);
         lifeCount = lifeCount - 1;

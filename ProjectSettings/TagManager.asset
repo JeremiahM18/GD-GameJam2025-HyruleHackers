@@ -17,6 +17,7 @@ TagManager:
   - Key
   - Wall
   - Ground
+  - Chest
   layers:
   - Default
   - TransparentFX
