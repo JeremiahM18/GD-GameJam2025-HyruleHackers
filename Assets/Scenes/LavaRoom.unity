@@ -1366,8 +1366,8 @@ GameObject:
   - component: {fileID: 148036260}
   - component: {fileID: 148036259}
   m_Layer: 0
-  m_Name: Tilemap
-  m_TagString: Untagged
+  m_Name: Magma
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -1382,7 +1382,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: -0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 899785573}
@@ -16320,8 +16320,8 @@ GameObject:
   - component: {fileID: 899785573}
   - component: {fileID: 899785572}
   m_Layer: 0
-  m_Name: Grid
-  m_TagString: Untagged
+  m_Name: LavaGround
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -16348,8 +16348,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -1, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 0.25, y: 0.25, z: -0.1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 148036258}
   m_Father: {fileID: 0}
@@ -16434,8 +16434,8 @@ GameObject:
   m_Component:
   - component: {fileID: 945943701}
   m_Layer: 0
-  m_Name: Border
-  m_TagString: Untagged
+  m_Name: Wall
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
