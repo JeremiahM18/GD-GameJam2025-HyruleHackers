@@ -47,6 +47,11 @@ public class BasicEnemy : MonoBehaviour
         }
 
         transform.Translate(direction * moveSpeed * Time.deltaTime);
+
+        //Lock Z Axis
+        Vector3 fixedPosition = transform.position;
+        fixedPosition.z = 0f;
+        transform.position = fixedPosition;
     }
 
     void ChangeDirection()
