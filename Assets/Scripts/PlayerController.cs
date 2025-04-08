@@ -270,7 +270,7 @@ public class PlayerController : MonoBehaviour
             messageText.transform.parent.gameObject.SetActive(true);
 
 
-            StartCoroutine(HideMessageAfterDelay(3f));
+            StartCoroutine(HideMessageAfterDelay(2f));
 
         }
     }
