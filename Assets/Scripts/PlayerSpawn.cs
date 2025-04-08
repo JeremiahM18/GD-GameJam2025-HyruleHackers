@@ -16,8 +16,7 @@ public class PlayerSpawn : MonoBehaviour
     void Start()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        playerPos = new Vector2(player.transform.position);
-        sceneName = Scene
+        playerPos = player.transform.position;
 
         if (player != null) {
             if (SceneManager.GetActiveScene().name == "ForestRoom") {
