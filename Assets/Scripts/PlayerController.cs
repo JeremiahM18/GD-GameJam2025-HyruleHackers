@@ -275,6 +275,7 @@ public class PlayerController : MonoBehaviour
                 timerBehavior.RestartTimer();
             }
 
+
             else if (other.gameObject.CompareTag("Pedestal") && GameSaveManager.HasAllTriangles())
             {
                 GameSaveManager.instance.TriggerConfetti();
@@ -300,6 +301,7 @@ public class PlayerController : MonoBehaviour
         }
 
 
+
         //if (other.gameObject.CompareTag("Chest"))
         //{
         //    chestAnim = other.gameObject.GetComponent<Animator>();
@@ -313,6 +315,7 @@ public class PlayerController : MonoBehaviour
         //        PlaySound(4);
         //        key.SetActive(true);
         //        keyCount = keyCount + 1;
+
 
 
         //        ShowMessage("Yay! You found a key!");
@@ -338,6 +341,7 @@ public class PlayerController : MonoBehaviour
         //        StartCoroutine(HideKey());
         //    }
         //}
+
 
     
 
@@ -379,6 +383,7 @@ public class PlayerController : MonoBehaviour
 
         void loseHealth() {
 
+
         if (isRecovering || lifeCount <= 0)
         {
             return;
@@ -408,6 +413,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator RecoveryFlash()
     {
+
         isRecovering = true;
         float elapsed = 0f;
 
