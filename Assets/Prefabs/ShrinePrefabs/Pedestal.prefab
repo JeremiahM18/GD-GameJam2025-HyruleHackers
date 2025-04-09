@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 3050101005463690509}
   - component: {fileID: 8034634075176145603}
   - component: {fileID: 3807043713424155764}
+  - component: {fileID: 8133731128532377402}
   m_Layer: 0
   m_Name: Pedestal
-  m_TagString: Untagged
+  m_TagString: Pedestal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,3 +110,57 @@ MonoBehaviour:
   alter2Gems: {fileID: 968807612723038221, guid: 21a9d19dcbfda44e58c89c83237e7388, type: 3}
   alter3Gems: {fileID: 7186171042926826241, guid: 20a7ad31237ef4735b94f32d6f4cbc16, type: 3}
   litGemSprite: {fileID: 0}
+--- !u!60 &8133731128532377402
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7257696114944928045}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.31, y: 0.25}
+    newSize: {x: 0.31, y: 0.25}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.024999999, y: 0.125}
+      - {x: -0.155, y: 0.024999999}
+      - {x: -0.155, y: -0.114999995}
+      - {x: -0.145, y: -0.125}
+      - {x: 0.155, y: -0.125}
+      - {x: 0.155, y: 0.005}
+      - {x: 0.065, y: 0.125}
+  m_UseDelaunayMesh: 0

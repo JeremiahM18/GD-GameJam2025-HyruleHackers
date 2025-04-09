@@ -2,7 +2,11 @@ using UnityEngine;
 
 public class GameSaveManager : MonoBehaviour
 {
-   public static GameSaveManager instance;
+    public static GameSaveManager instance;
+
+    // for win
+    public GameObject pedestal;
+    public GameObject confettiPrefab;
 
     private void Awake()
     {
@@ -38,5 +42,39 @@ public class GameSaveManager : MonoBehaviour
         player.SetGemState("fire", PlayerPrefs.GetInt("FireGem", 0) == 1);
         player.SetGemState("ice", PlayerPrefs.GetInt("IceGem", 0) == 1);
         player.SetGemState("forest", PlayerPrefs.GetInt("ForestGem", 0) == 1);
+
+        if (player.HasFireGem() && player.HasIceGem() && player.HasForestGem())
+        {
+            TriggerWinCondition();
+        }
+    }
+
+    public static bool HasAllTriangles()
+    {
+        return PlayerPrefs.GetInt("FireGem", 0) == 1 &&
+               PlayerPrefs.GetInt("IceGem", 0) == 1 &&
+               PlayerPrefs.GetInt("ForestGem", 0) == 1;
+    }
+
+    public void TriggerWinCondition()
+    { 
+        ChangePedestalImage();
+        TriggerConfetti();
+
+    }
+
+    public void TriggerConfetti()
+    {
+        Instantiate(confettiPrefab, pedestal.transform.position, Quaternion.identity);
+    }
+
+    private void ChangePedestalImage()
+    {
+        SpriteRenderer pedestalSpriteRenderer = pedestal.GetComponent<SpriteRenderer>();
+        Sprite newImage = Resources.Load<Sprite>("altar 3");  
+        pedestalSpriteRenderer.sprite = newImage;
     }
 }
+
+    
+

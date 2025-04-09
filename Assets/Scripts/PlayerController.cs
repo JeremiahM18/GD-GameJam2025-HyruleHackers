@@ -20,6 +20,8 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameSaveManager gameSaveManager;
+
     public GameObject instructionsPanel;
     private bool isPausedForInstructions = false;
 
@@ -273,7 +275,7 @@ public class PlayerController : MonoBehaviour
                 chestAnim.SetTrigger("Open");
                 // if (keyCount < keyIcon.Length)
                 // {
-                    keyIcon[keyCount].gameObject.SetActive(true);
+                keyIcon[keyCount].gameObject.SetActive(true);
                 // }
                 PlaySound(4);
                 key.SetActive(true);
@@ -283,6 +285,12 @@ public class PlayerController : MonoBehaviour
 
                 StartCoroutine(HideKey());
             }
+        }
+
+        if (other.gameObject.CompareTag("Pedestal") && GameSaveManager.HasAllTriangles())
+        {
+            GameSaveManager.instance.TriggerConfetti();
+            GameSaveManager.instance.TriggerWinCondition();
         }
     }
 

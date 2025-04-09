@@ -1,2 +1,13 @@
 fileFormatVersion: 2
 guid: 8aa7039a19f02b7409805ad451a92bd2
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - pedestal: {fileID: 7257696114944928045, guid: 6e27c64c2e3dbc24298fb87a93eb8565, type: 3}
+  - confettiPrefab: {fileID: 426185609640704100, guid: 057b9e5413e1d4c6281130090d712347, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

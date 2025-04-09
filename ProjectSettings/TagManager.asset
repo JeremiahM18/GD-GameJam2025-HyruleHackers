@@ -18,6 +18,7 @@ TagManager:
   - Wall
   - Ground
   - Chest
+  - Pedestal
   layers:
   - Default
   - TransparentFX
