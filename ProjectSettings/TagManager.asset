@@ -19,6 +19,7 @@ TagManager:
   - Ground
   - Chest
   - Pedestal
+  - Sword
   layers:
   - Default
   - TransparentFX

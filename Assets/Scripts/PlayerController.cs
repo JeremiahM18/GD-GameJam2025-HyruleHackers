@@ -148,7 +148,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Attack
-        if (Input.GetButtonDown("Fire1") && hasSword == true) {
+        if (Input.GetKeyDown(KeyCode.Space) && hasSword == true) {
             //play attack sound and animation
             PlaySound(0);
             animator.SetTrigger("Attack");
