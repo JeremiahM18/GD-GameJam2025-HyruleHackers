@@ -97,6 +97,14 @@ public class GameSaveManager : MonoBehaviour
         GameManager.instance.SetGemState("ice", PlayerPrefs.GetInt("IceGem", 0) == 1);
         GameManager.instance.SetGemState("forest", PlayerPrefs.GetInt("ForestGem", 0) == 1);
 
+
+        //player.SetGemState("fire", PlayerPrefs.GetInt("FireGem", 0) == 1);
+        //player.SetGemState("ice", PlayerPrefs.GetInt("IceGem", 0) == 1);
+        //player.SetGemState("forest", PlayerPrefs.GetInt("ForestGem", 0) == 1);
+
+        GameManager.instance.SetGemState("fire", PlayerPrefs.GetInt("FireGem", 0) == 1);
+        GameManager.instance.SetGemState("ice", PlayerPrefs.GetInt("IceGem", 0) == 1);
+        GameManager.instance.SetGemState("forest", PlayerPrefs.GetInt("ForestGem", 0) == 1);
     }
 }
 

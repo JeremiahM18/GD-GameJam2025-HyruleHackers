@@ -4,7 +4,9 @@
 TagManager:
   serializedVersion: 3
   tags: []
+  tags:
   - Door
+  - IceDoor
   - LavaDoor
   - Enemy
   - FireTriangle
