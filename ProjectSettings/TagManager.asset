@@ -15,6 +15,11 @@ TagManager:
   - Key
   - Enemy
   - IcicleWall
+  - Door
+  - IceTriangle
+  - ForestTriangle
+  - FireTriangle
+  - Heart
   layers:
   - Default
   - TransparentFX

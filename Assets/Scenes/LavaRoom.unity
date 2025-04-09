@@ -530,6 +530,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem
       objectReference: {fileID: 0}
+    - target: {fileID: 3972167647331270694, guid: 4231028832126c24b93de00c55628a61, type: 3}
+      propertyPath: m_TagString
+      value: FireTriangle
+      objectReference: {fileID: 0}
     - target: {fileID: 6861157066730187312, guid: 4231028832126c24b93de00c55628a61, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -619,6 +623,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1055118436953783436, guid: a5b4ef179156048d69d1c47be2a17ca3, type: 3}
+      propertyPath: key
+      value: 
+      objectReference: {fileID: 990796532}
+    - target: {fileID: 1055118436953783436, guid: a5b4ef179156048d69d1c47be2a17ca3, type: 3}
       propertyPath: hasKey
       value: 
       objectReference: {fileID: 807814990}
@@ -630,6 +638,22 @@ PrefabInstance:
       propertyPath: doorMenu
       value: 
       objectReference: {fileID: 744250485}
+    - target: {fileID: 1055118436953783436, guid: a5b4ef179156048d69d1c47be2a17ca3, type: 3}
+      propertyPath: PauseMenu
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055118436953783436, guid: a5b4ef179156048d69d1c47be2a17ca3, type: 3}
+      propertyPath: hasLavaKey
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055118436953783436, guid: a5b4ef179156048d69d1c47be2a17ca3, type: 3}
+      propertyPath: hasForestKey
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055118436953783436, guid: a5b4ef179156048d69d1c47be2a17ca3, type: 3}
+      propertyPath: gameSaveManager
+      value: 
+      objectReference: {fileID: 1349367811}
     - target: {fileID: 4629532747906962073, guid: a5b4ef179156048d69d1c47be2a17ca3, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -695,11 +719,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5b4ef179156048d69d1c47be2a17ca3, type: 3}
---- !u!1 &54615220 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6943290460798089686, guid: a5b4ef179156048d69d1c47be2a17ca3, type: 3}
-  m_PrefabInstance: {fileID: 54615219}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &71295287
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18083,6 +18102,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sword
       objectReference: {fileID: 0}
+    - target: {fileID: 3972167647331270694, guid: 4231028832126c24b93de00c55628a61, type: 3}
+      propertyPath: m_TagString
+      value: Sword
+      objectReference: {fileID: 0}
     - target: {fileID: 6861157066730187312, guid: 4231028832126c24b93de00c55628a61, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -18578,7 +18601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b3cd86bd8b2f4507b17f2dd9f6b23a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 54615220}
+  player: {fileID: 0}
 --- !u!114 &952627710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20394,6 +20417,52 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3983873d102b4a55b4f0cbd263cb64d, type: 3}
+--- !u!1 &1349367810
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1349367812}
+  - component: {fileID: 1349367811}
+  m_Layer: 0
+  m_Name: GSM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1349367811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349367810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aa7039a19f02b7409805ad451a92bd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pedestal: {fileID: 7257696114944928045, guid: 6e27c64c2e3dbc24298fb87a93eb8565, type: 3}
+  confettiPrefab: {fileID: 426185609640704100, guid: 057b9e5413e1d4c6281130090d712347, type: 3}
+--- !u!4 &1349367812
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349367810}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.0294778, y: -1.4901825, z: -0.049390323}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1359255648
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24968,6 +25037,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2076756916}
+  - component: {fileID: 2076756917}
   m_Layer: 0
   m_Name: PlayerSpawn
   m_TagString: Untagged
@@ -24990,6 +25060,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2076756917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076756915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de287703282bb4f2192c80502b6f312c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forestSpawn: {fileID: 0}
+  iceSpawn: {fileID: 0}
+  lavaSpawn: {fileID: 2076756915}
+  innerSpawnForest: {fileID: 0}
+  innerSpawnIce: {fileID: 0}
+  innerSpawnLava: {fileID: 0}
 --- !u!1001 &2088157665
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25482,3 +25570,4 @@ SceneRoots:
   - {fileID: 54583209}
   - {fileID: 919990645}
   - {fileID: 990796530}
+  - {fileID: 1349367812}
