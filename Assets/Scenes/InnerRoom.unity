@@ -30020,6 +30020,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1942579287}
   m_CullTransparentMesh: 1
+--- !u!1 &2007901599
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2007901601}
+  - component: {fileID: 2007901600}
+  m_Layer: 0
+  m_Name: GameSaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2007901600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007901599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aa7039a19f02b7409805ad451a92bd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pedestal: {fileID: 7257696114944928045, guid: 6e27c64c2e3dbc24298fb87a93eb8565, type: 3}
+  confettiPrefab: {fileID: 426185609640704100, guid: 057b9e5413e1d4c6281130090d712347, type: 3}
+--- !u!4 &2007901601
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007901599}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2039790274
 GameObject:
   m_ObjectHideFlags: 0
@@ -30336,6 +30382,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 1546625870}
   - {fileID: 190125610}
+  - {fileID: 2007901601}
   - {fileID: 1232141487}
   - {fileID: 193826665}
   - {fileID: 1425574346}
