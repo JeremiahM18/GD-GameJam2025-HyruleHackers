@@ -271,13 +271,12 @@ public class PlayerController : MonoBehaviour
             {
                 timerBehavior.RestartTimer();
             }
+        }
 
-
-            else if (other.gameObject.CompareTag("Pedestal") && GameSaveManager.HasAllTriangles())
-            {
-                GameSaveManager.instance.TriggerConfetti();
-                GameSaveManager.instance.TriggerWinCondition();
-            }
+        else if (other.gameObject.CompareTag("Pedestal") && GameSaveManager.HasAllTriangles())
+        {
+            GameSaveManager.instance.TriggerConfetti();
+            GameSaveManager.instance.TriggerWinCondition();
         }
 
 
@@ -295,7 +294,7 @@ public class PlayerController : MonoBehaviour
         //        key.SetActive(true);
         //        keyCount = keyCount + 1;
 
-        }
+    }
 
 
 
@@ -438,6 +437,12 @@ public class PlayerController : MonoBehaviour
             lifeIcon[lifeCount].gameObject.SetActive(true);
             lifeCount++;
         }
+    }
+
+    public void UnlockSword()
+    {
+        hasSword = true;
+        PlaySound(5);
     }
 
     #region Coins
