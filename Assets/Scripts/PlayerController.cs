@@ -40,11 +40,16 @@ public class PlayerController : MonoBehaviour
     public GameObject[] lifeIcon;
     public GameObject[] keyIcon;
 
+    // Recover Time
+    private bool isRecovering = false;
+    public float recoveryDuration = 1.0f;
+    private SpriteRenderer spriteRenderer;
+
     private static bool hasSword = false;
     private static int keyCount = 0; // forest >=1, ice >= 2, lava >= 3
-    private static bool hasFireTriangle = false;
-    private static bool hasIceTriangle = false;
-    private static bool hasForestTriangle = false;
+    private static bool hasFireTriangle => GameManager.instance.hasFireGem;
+    private static bool hasIceTriangle => GameManager.instance.hasIceGem;
+    private static bool hasForestTriangle => GameManager.instance.hasForestGem;
 
     public GameObject PauseMenu;
 
@@ -108,6 +113,7 @@ public class PlayerController : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         if (SceneManager.GetActiveScene().name == "IceRoom")
         {
@@ -148,7 +154,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Attack
-        if (Input.GetButtonDown("Fire1") && hasSword == true) {
+        if (Input.GetKeyDown(KeyCode.Space) && hasSword == true) {
             //play attack sound and animation
             PlaySound(0);
             animator.SetTrigger("Attack");
@@ -183,21 +189,23 @@ public class PlayerController : MonoBehaviour
     // Handle all pick up items
     void OnTriggerEnter2D (Collider2D pickup) {
         // Fire Triangle
-        if (pickup.gameObject.CompareTag("FireTriangle")) {
-            hasFireTriangle = true;
+        if (pickup.gameObject.CompareTag("FireTriangle"))
+        {
+            SetGemState("fire", true);
             pickup.gameObject.SetActive(false);
-            ShowMessage("The shard of Intellect!");
+            ShowMessage("The shard of Strength!");
         }
         // Ice Triangle
-        else if (pickup.gameObject.CompareTag("IceTriangle")) {
-            hasIceTriangle = true;
+        else if (pickup.gameObject.CompareTag("IceTriangle")) 
+        {
+            SetGemState("ice", true);
             pickup.gameObject.SetActive(false);
             ShowMessage("The shard of Intellect!");
             StartCoroutine(FollowUpMessage("You're almost there!", 2f));
         }
         // Forest Triangle
         else if (pickup.gameObject.CompareTag("ForestTriangle")) {
-            hasForestTriangle = true;
+            SetGemState("forest", true);
             PlaySound(5);
             pickup.gameObject.SetActive(false);
             ShowMessage("The shard of Creativity!");
@@ -218,7 +226,8 @@ public class PlayerController : MonoBehaviour
             
     }
 
-    void OnCollisionEnter2D (Collision2D other) {
+    void OnCollisionEnter2D (Collision2D other) 
+    {
         // Doors
         if (other.gameObject.CompareTag("ForestDoor")) {
                 doorMenu.SetActive(true);
@@ -265,34 +274,72 @@ public class PlayerController : MonoBehaviour
             {
                 timerBehavior.RestartTimer();
             }
-        }
 
-        if (other.gameObject.CompareTag("Chest"))
-        {
-            chestAnim = other.gameObject.GetComponent<Animator>();
-            if (chestAnim != null)
+            else if (other.gameObject.CompareTag("Pedestal") && GameSaveManager.HasAllTriangles())
             {
-                chestAnim.SetTrigger("Open");
-                // if (keyCount < keyIcon.Length)
-                // {
-                keyIcon[keyCount].gameObject.SetActive(true);
-                // }
-                PlaySound(4);
-                key.SetActive(true);
-                keyCount = keyCount + 1;
-
-                ShowMessage("Yay! You found a key!");
-
-                StartCoroutine(HideKey());
+                GameSaveManager.instance.TriggerConfetti();
+                GameSaveManager.instance.TriggerWinCondition();
             }
         }
 
-        if (other.gameObject.CompareTag("Pedestal") && GameSaveManager.HasAllTriangles())
-        {
-            GameSaveManager.instance.TriggerConfetti();
-            GameSaveManager.instance.TriggerWinCondition();
+
+        //if (other.gameObject.CompareTag("Chest"))
+        //{
+        //    chestAnim = other.gameObject.GetComponent<Animator>();
+        //    if (chestAnim != null)
+        //    {
+        //        chestAnim.SetTrigger("Open");
+        //        // if (keyCount < keyIcon.Length)
+        //        // {
+        //        keyIcon[keyCount].gameObject.SetActive(true);
+        //        // }
+        //        PlaySound(4);
+        //        key.SetActive(true);
+        //        keyCount = keyCount + 1;
+
         }
-    }
+
+
+        //if (other.gameObject.CompareTag("Chest"))
+        //{
+        //    chestAnim = other.gameObject.GetComponent<Animator>();
+        //    if (chestAnim != null)
+        //    {
+        //        chestAnim.SetTrigger("Open");
+        //        // if (keyCount < keyIcon.Length)
+        //        // {
+        //            keyIcon[keyCount].gameObject.SetActive(true);
+        //        // }
+        //        PlaySound(4);
+        //        key.SetActive(true);
+        //        keyCount = keyCount + 1;
+
+
+        //        ShowMessage("Yay! You found a key!");
+
+
+               // StartCoroutine(HideKey());
+        //    }
+        //}
+
+        //if (other.gameObject.CompareTag("Pedestal") && GameSaveManager.HasAllTriangles())
+        //{
+        //    GameSaveManager.instance.TriggerConfetti();
+        //    GameSaveManager.instance.TriggerWinCondition();
+        //}
+
+        //        StartCoroutine(HideKey());
+        //    }
+        //}
+
+
+        //        ShowMessage("Yay! You found a key!");
+
+        //        StartCoroutine(HideKey());
+        //    }
+        //}
+
+    
 
     public void ContinueFromInstructions()
     {
@@ -331,21 +378,62 @@ public class PlayerController : MonoBehaviour
     }
 
         void loseHealth() {
+
+        if (isRecovering || lifeCount <= 0)
+        {
+            return;
+        }
+
         PlaySound(1);
-        lifeIcon[lifeCount - 1].gameObject.SetActive(false);
-        lifeCount = lifeCount - 1;
-            if (lifeCount == 0) {
+
+        lifeCount--;
+
+        if(lifeCount >= 0 && lifeCount < lifeIcon.Length)
+        {
+            lifeIcon[lifeCount].gameObject.SetActive(false);
+        }
+
+        if(lifeCount == 0) {
+
             animator.SetTrigger("Death");
             // play death sound 
             // fade screen to black
             StartCoroutine(Death());
             }
+        else
+        {
+            StartCoroutine(RecoveryFlash());
+        }
     }
 
-    void gainHealth() {
-        PlaySound(2);
-        lifeIcon[lifeCount].gameObject.SetActive(true);
-        lifeCount = lifeCount + 1;
+    private IEnumerator RecoveryFlash()
+    {
+        isRecovering = true;
+        float elapsed = 0f;
+
+        while (elapsed < recoveryDuration)
+        {
+            if (spriteRenderer != null)
+                spriteRenderer.enabled = !spriteRenderer.enabled;
+
+            yield return new WaitForSeconds(0.1f);
+            elapsed += 0.1f;
+        }
+
+        if (spriteRenderer != null)
+            spriteRenderer.enabled = true;
+
+        isRecovering = false;
+    }
+
+    void gainHealth()
+    {
+        if (lifeCount < lifeIcon.Length)
+        {
+            PlaySound(2);
+            lifeIcon[lifeCount].gameObject.SetActive(true);
+            lifeCount++;
+        }
     }
 
     #region Coins
@@ -361,6 +449,19 @@ public class PlayerController : MonoBehaviour
             triangleCoins = maxCoins;
         }
         return true;
+    }
+
+    public void AddKey()
+    {
+        if (keyCount < keyIcon.Length)
+        {
+            keyIcon[keyCount].SetActive(true);
+            keyCount++;
+            PlaySound(4);
+            key.SetActive(true);
+            ShowMessage("You found a key!");
+            StartCoroutine(HideKey());
+        }
     }
 
     public int GetCoinCount() => triangleCoins;
@@ -381,12 +482,15 @@ public class PlayerController : MonoBehaviour
 
     public void SetGemState(string type, bool state)
     {
-        switch (type)
-        {
-            case "fire": hasFireTriangle = state; break;
-            case "ice": hasIceTriangle = state; break;
-            case "forest": hasForestTriangle = state; break;
-        }
+
+        GameManager.instance.SetGemState(type, state);
+        //switch (type)
+        //{
+        //    case "fire": hasFireTriangle = state; break;
+        //    case "ice": hasIceTriangle = state; break;
+        //    case "forest": hasForestTriangle = state; break;
+        //}
+    
     }
     #endregion
 }

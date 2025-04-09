@@ -3,9 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags:
+  tags: []
   - Door
-  - IceDoor
   - LavaDoor
   - Enemy
   - FireTriangle
@@ -18,7 +17,7 @@ TagManager:
   - Wall
   - Ground
   - Chest
-  - Pedestal
+  - SafePath
   layers:
   - Default
   - TransparentFX
