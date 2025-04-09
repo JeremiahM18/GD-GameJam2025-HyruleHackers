@@ -47,10 +47,7 @@ public class PlayerController : MonoBehaviour
 
     private static bool hasSword = false;
     private static int keyCount = 0; // forest >=1, ice >= 2, lava >= 3
-    private static bool hasFireTriangle => GameManager.instance.hasFireGem;
-    private static bool hasIceTriangle => GameManager.instance.hasIceGem;
-    private static bool hasForestTriangle => GameManager.instance.hasForestGem;
-
+    
     public GameObject PauseMenu;
 
     // Door Menu
@@ -482,22 +479,21 @@ public class PlayerController : MonoBehaviour
 
     #region Gem States
 
-    public bool HasFireGem() => hasFireTriangle;
-    public bool HasIceGem() => hasIceTriangle;
+    public bool HasFireGem() => PlayerPrefs.GetInt("FireGem", 0) == 1;
+    public bool HasIceGem() => PlayerPrefs.GetInt("IceGem", 0) == 1;
 
-    public bool HasForestGem() => hasForestTriangle;
+    public bool HasForestGem() => PlayerPrefs.GetInt("ForestGem", 0) == 1;
 
     public void SetGemState(string type, bool state)
     {
+        //GameManager.instance.SetGemState(string type, bool state);
+        switch (type)
+        {
+            case "fire": PlayerPrefs.SetInt("FireGem", state ? 1 : 0); break;
+            case "ice": PlayerPrefs.SetInt("IceGem", state ? 1 : 0); break;
+            case "forest": PlayerPrefs.SetInt("ForestGem", state ? 1 : 0); break;
+        }
 
-        GameManager.instance.SetGemState(type, state);
-        //switch (type)
-        //{
-        //    case "fire": hasFireTriangle = state; break;
-        //    case "ice": hasIceTriangle = state; break;
-        //    case "forest": hasForestTriangle = state; break;
-        //}
-    
     }
     #endregion
 }

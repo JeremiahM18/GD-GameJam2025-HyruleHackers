@@ -30,8 +30,19 @@ public class GameManager : MonoBehaviour
         {
             case "fire": hasFireGem = value; break;
             case "ice": hasIceGem = value; break;
-            case "forest": hasForestGem= value; break;
+            case "forest": hasForestGem = value; break;
         }
+
+        PlayerPrefs.SetInt(
+            type switch
+            {
+                "fire" => "FireGem",
+                "ice" => "IceGem",
+                "forest" => "ForestGem",
+                _ => ""
+            },
+            value ? 1 : 0
+            );
     }
 
     public bool GetGemState(string type)

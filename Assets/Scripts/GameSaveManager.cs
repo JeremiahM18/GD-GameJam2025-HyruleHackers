@@ -35,9 +35,9 @@ public class GameSaveManager : MonoBehaviour
         //PlayerPrefs.SetInt("IceGem", player.HasIceGem() ? 1 : 0);
         //PlayerPrefs.SetInt("ForestGem", player.HasForestGem() ? 1 : 0);
 
-        PlayerPrefs.SetInt("FireGem", GameManager.instance.hasFireGem ? 1 : 0);
-        PlayerPrefs.SetInt("IceGem", GameManager.instance.hasIceGem ? 1 : 0);
-        PlayerPrefs.SetInt("ForestGem", GameManager.instance.hasForestGem ? 1 : 0);
+        //PlayerPrefs.SetInt("FireGem", GameManager.instance.hasFireGem ? 1 : 0);
+        //PlayerPrefs.SetInt("IceGem", GameManager.instance.hasIceGem ? 1 : 0);
+        //PlayerPrefs.SetInt("ForestGem", GameManager.instance.hasForestGem ? 1 : 0);
 
     }
 
@@ -51,9 +51,9 @@ public class GameSaveManager : MonoBehaviour
         //player.SetGemState("ice", PlayerPrefs.GetInt("IceGem", 0) == 1);
         //player.SetGemState("forest", PlayerPrefs.GetInt("ForestGem", 0) == 1);
 
-        GameManager.instance.SetGemState("fire", PlayerPrefs.GetInt("FireGem", 0) == 1);
-        GameManager.instance.SetGemState("ice", PlayerPrefs.GetInt("IceGem", 0) == 1);
-        GameManager.instance.SetGemState("forest", PlayerPrefs.GetInt("ForestGem", 0) == 1);
+        //GameManager.instance.SetGemState("fire", PlayerPrefs.GetInt("FireGem", 0) == 1);
+        //GameManager.instance.SetGemState("ice", PlayerPrefs.GetInt("IceGem", 0) == 1);
+        //GameManager.instance.SetGemState("forest", PlayerPrefs.GetInt("ForestGem", 0) == 1);
 
         //if (player.HasFireGem() && player.HasIceGem() && player.HasForestGem())
         //{
@@ -94,9 +94,9 @@ private void ChangePedestalImage()
     //player.SetGemState("ice", PlayerPrefs.GetInt("IceGem", 0) == 1);
     //player.SetGemState("forest", PlayerPrefs.GetInt("ForestGem", 0) == 1);
 
-    GameManager.instance.SetGemState("fire", PlayerPrefs.GetInt("FireGem", 0) == 1);
-    GameManager.instance.SetGemState("ice", PlayerPrefs.GetInt("IceGem", 0) == 1);
-    GameManager.instance.SetGemState("forest", PlayerPrefs.GetInt("ForestGem", 0) == 1);
+    //GameManager.instance.SetGemState("fire", PlayerPrefs.GetInt("FireGem", 0) == 1);
+    //GameManager.instance.SetGemState("ice", PlayerPrefs.GetInt("IceGem", 0) == 1);
+    //GameManager.instance.SetGemState("forest", PlayerPrefs.GetInt("ForestGem", 0) == 1);
 
 
 
@@ -104,9 +104,9 @@ private void ChangePedestalImage()
     //player.SetGemState("ice", PlayerPrefs.GetInt("IceGem", 0) == 1);
     //player.SetGemState("forest", PlayerPrefs.GetInt("ForestGem", 0) == 1);
 
-    GameManager.instance.SetGemState("fire", PlayerPrefs.GetInt("FireGem", 0) == 1);
-    GameManager.instance.SetGemState("ice", PlayerPrefs.GetInt("IceGem", 0) == 1);
-    GameManager.instance.SetGemState("forest", PlayerPrefs.GetInt("ForestGem", 0) == 1);
+    //GameManager.instance.SetGemState("fire", PlayerPrefs.GetInt("FireGem", 0) == 1);
+    //GameManager.instance.SetGemState("ice", PlayerPrefs.GetInt("IceGem", 0) == 1);
+    //GameManager.instance.SetGemState("forest", PlayerPrefs.GetInt("ForestGem", 0) == 1);
 }
 }
 
