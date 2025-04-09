@@ -46,7 +46,6 @@ public class GameSaveManager : MonoBehaviour
         // player.lifeCount = PlayerPrefs.GetInt("KeyCount", 1);
         //player.SetCoinCount(PlayerPrefs.GetInt("Coins", 0));
 
-
         //player.SetGemState("fire", PlayerPrefs.GetInt("FireGem", 0) == 1);
         //player.SetGemState("ice", PlayerPrefs.GetInt("IceGem", 0) == 1);
         //player.SetGemState("forest", PlayerPrefs.GetInt("ForestGem", 0) == 1);
@@ -89,7 +88,7 @@ public class GameSaveManager : MonoBehaviour
         SpriteRenderer pedestalSpriteRenderer = pedestal.GetComponent<SpriteRenderer>();
         Sprite newImage = Resources.Load<Sprite>("altar 3");  
         pedestalSpriteRenderer.sprite = newImage;
-=======
+
         //player.SetGemState("fire", PlayerPrefs.GetInt("FireGem", 0) == 1);
         //player.SetGemState("ice", PlayerPrefs.GetInt("IceGem", 0) == 1);
         //player.SetGemState("forest", PlayerPrefs.GetInt("ForestGem", 0) == 1);
@@ -97,7 +96,7 @@ public class GameSaveManager : MonoBehaviour
         GameManager.instance.SetGemState("fire", PlayerPrefs.GetInt("FireGem", 0) == 1);
         GameManager.instance.SetGemState("ice", PlayerPrefs.GetInt("IceGem", 0) == 1);
         GameManager.instance.SetGemState("forest", PlayerPrefs.GetInt("ForestGem", 0) == 1);
->>>>>>> Stashed changes
+
     }
 }
 

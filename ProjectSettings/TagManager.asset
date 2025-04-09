@@ -4,6 +4,20 @@
 TagManager:
   serializedVersion: 3
   tags: []
+  - Door
+  - LavaDoor
+  - Enemy
+  - FireTriangle
+  - IceTriangle
+  - ForestTriangle
+  - Heart
+  - ForestDoor
+  - IcicleWall
+  - Key
+  - Wall
+  - Ground
+  - Chest
+  - SafePath
   layers:
   - Default
   - TransparentFX

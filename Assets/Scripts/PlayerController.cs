@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
     public GameObject[] keyIcon;
 
     // Recover Time
-    private bool isRecoving = false;
+    private bool isRecovering = false;
     public float recoveryDuration = 1.0f;
     private SpriteRenderer spriteRenderer;
 
@@ -274,6 +274,7 @@ public class PlayerController : MonoBehaviour
             {
                 timerBehavior.RestartTimer();
             }
+
             else if (other.gameObject.CompareTag("Pedestal") && GameSaveManager.HasAllTriangles())
             {
                 GameSaveManager.instance.TriggerConfetti();
@@ -281,7 +282,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-<<<<<<< Updated upstream
+
         //if (other.gameObject.CompareTag("Chest"))
         //{
         //    chestAnim = other.gameObject.GetComponent<Animator>();
@@ -295,7 +296,10 @@ public class PlayerController : MonoBehaviour
         //        PlaySound(4);
         //        key.SetActive(true);
         //        keyCount = keyCount + 1;
-=======
+
+        }
+
+
         //if (other.gameObject.CompareTag("Chest"))
         //{
         //    chestAnim = other.gameObject.GetComponent<Animator>();
@@ -309,12 +313,12 @@ public class PlayerController : MonoBehaviour
         //        PlaySound(4);
         //        key.SetActive(true);
         //        keyCount = keyCount + 1;
->>>>>>> Stashed changes
+
 
         //        ShowMessage("Yay! You found a key!");
 
-<<<<<<< Updated upstream
-                StartCoroutine(HideKey());
+
+               // StartCoroutine(HideKey());
         //    }
         //}
 
@@ -323,12 +327,19 @@ public class PlayerController : MonoBehaviour
         //    GameSaveManager.instance.TriggerConfetti();
         //    GameSaveManager.instance.TriggerWinCondition();
         //}
-=======
+
         //        StartCoroutine(HideKey());
         //    }
         //}
->>>>>>> Stashed changes
-    }
+
+
+        //        ShowMessage("Yay! You found a key!");
+
+        //        StartCoroutine(HideKey());
+        //    }
+        //}
+
+    
 
     public void ContinueFromInstructions()
     {
@@ -368,7 +379,7 @@ public class PlayerController : MonoBehaviour
 
         void loseHealth() {
 
-        if (isRecoving || lifeCount <= 0)
+        if (isRecovering || lifeCount <= 0)
         {
             return;
         }
@@ -397,7 +408,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator RecoveryFlash()
     {
-        isRecoving = true;
+        isRecovering = true;
         float elapsed = 0f;
 
         while (elapsed < recoveryDuration)
@@ -412,7 +423,7 @@ public class PlayerController : MonoBehaviour
         if (spriteRenderer != null)
             spriteRenderer.enabled = true;
 
-        isRecoving = false;
+        isRecovering = false;
     }
 
     void gainHealth()
