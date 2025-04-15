@@ -15250,7 +15250,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 7994491847650427428, guid: d7d8bd9c2218c42ffb29e05f218e20cd, type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 5db08f67ba6674c8ea69904e378d5b80, type: 3}
   m_Resource: {fileID: 8300000, guid: 5db08f67ba6674c8ea69904e378d5b80, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -23742,7 +23742,7 @@ PrefabInstance:
       objectReference: {fileID: 5870264092058422161}
     - target: {fileID: 1055118436953783436, guid: a5b4ef179156048d69d1c47be2a17ca3, type: 3}
       propertyPath: speed
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1055118436953783436, guid: a5b4ef179156048d69d1c47be2a17ca3, type: 3}
       propertyPath: hasKey
@@ -24424,6 +24424,25 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4961350735741218800, guid: 419b905c1916446409c5bc86576d3d34, type: 3}
   m_PrefabInstance: {fileID: 835739480}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &837405525 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1302987248688668404, guid: 4231028832126c24b93de00c55628a61, type: 3}
+  m_PrefabInstance: {fileID: 1001370049654650146}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &837405530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837405525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f9d10bbfca93a4c84537dc4312a6bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reward: 3
+  rewardSprite: {fileID: 5870264092058422161}
 --- !u!1 &890198854 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4152971148871734395, guid: 419b905c1916446409c5bc86576d3d34, type: 3}
@@ -30087,7 +30106,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1
+  orthographic size: 2
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -31225,7 +31244,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1302987248688668404, guid: 4231028832126c24b93de00c55628a61, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 837405530}
   m_SourcePrefab: {fileID: 100100000, guid: 4231028832126c24b93de00c55628a61, type: 3}
 --- !u!1 &5870264092058422161 stripped
 GameObject:
