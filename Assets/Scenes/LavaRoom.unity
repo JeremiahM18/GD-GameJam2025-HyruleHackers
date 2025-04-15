@@ -590,6 +590,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6943290460798089686, guid: a5b4ef179156048d69d1c47be2a17ca3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8439756360534262038, guid: a5b4ef179156048d69d1c47be2a17ca3, type: 3}
       propertyPath: m_Camera
       value: 
@@ -18149,7 +18153,7 @@ TilemapCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945943700}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -23066,6 +23070,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chest
       objectReference: {fileID: 0}
+    - target: {fileID: 3316706749338084738, guid: 848f67310ef735040a6432284e5a7f8e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8112357866391189607, guid: 848f67310ef735040a6432284e5a7f8e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.214
@@ -24745,6 +24753,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2076756916}
+  - component: {fileID: 2076756917}
   m_Layer: 0
   m_Name: PlayerSpawn
   m_TagString: Untagged
@@ -24767,6 +24776,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2076756917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076756915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de287703282bb4f2192c80502b6f312c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forestSpawn: {fileID: 0}
+  iceSpawn: {fileID: 0}
+  lavaSpawn: {fileID: 2076756915}
+  innerSpawnForest: {fileID: 0}
+  innerSpawnIce: {fileID: 0}
+  innerSpawnLava: {fileID: 0}
 --- !u!1001 &2088157665
 PrefabInstance:
   m_ObjectHideFlags: 0

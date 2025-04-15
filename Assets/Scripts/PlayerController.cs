@@ -133,6 +133,8 @@ public class PlayerController : MonoBehaviour
 
         // IceRoom Respawn
         RespawnPoint = new Vector2(-4.0f, 0);
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     void OnMove(InputValue movementValue) {
@@ -164,7 +166,15 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("MoveX", moveX);
         animator.SetFloat("MoveY", moveY);
 
-        animator.SetBool("IsMoving", moveX != 0 || moveY != 0);
+        //animator.SetBool("IsMoving", moveX != 0 || moveY != 0);
+        if (moveX != 0 || moveY != 0)
+        {
+            animator.SetBool("IsMoving", true); // Force the transition when moving
+        }
+        else
+        {
+            animator.SetBool("IsMoving", false); // Transition back to idle when not moving
+        }
 
         //Sets HasSword parameter if player has sword
         animator.SetBool("HasSword", hasSword);
@@ -283,69 +293,58 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        //if (other.gameObject.CompareTag("Chest"))
-        //{
-        //    chestAnim = other.gameObject.GetComponent<Animator>();
-        //    if (chestAnim != null)
-        //    {
-        //        chestAnim.SetTrigger("Open");
-        //        // if (keyCount < keyIcon.Length)
-        //        // {
-        //        keyIcon[keyCount].gameObject.SetActive(true);
-        //        // }
-        //        PlaySound(4);
-        //        key.SetActive(true);
-        //        keyCount = keyCount + 1;
+        if (other.gameObject.CompareTag("Chest"))
+        {
+            chestAnim = other.gameObject.GetComponent<Animator>();
+            if (chestAnim != null)
+            {
+                chestAnim.SetTrigger("Open");
+                 if (keyCount < keyIcon.Length)
+                 {
+                    keyIcon[keyCount].gameObject.SetActive(true);
+                 }
+                PlaySound(4);
+                key.SetActive(true);
+                keyCount = keyCount + 1;
 
+
+                ShowMessage("Yay! You found a key!");
+
+
+                StartCoroutine(HideKey());
+            }
         }
 
+        if (other.gameObject.CompareTag("Pedestal") && GameSaveManager.HasAllTriangles())
+        {
+            GameSaveManager.instance.TriggerConfetti();
+            GameSaveManager.instance.TriggerWinCondition();
+        }
 
-        //if (other.gameObject.CompareTag("Chest"))
-        //{
-        //    chestAnim = other.gameObject.GetComponent<Animator>();
-        //    if (chestAnim != null)
-        //    {
-        //        chestAnim.SetTrigger("Open");
-        //        // if (keyCount < keyIcon.Length)
-        //        // {
-        //            keyIcon[keyCount].gameObject.SetActive(true);
-        //        // }
-        //        PlaySound(4);
-        //        key.SetActive(true);
-        //        keyCount = keyCount + 1;
+                StartCoroutine(HideKey());
 
+                ShowMessage("Yay! You found a key!");
 
-        //        ShowMessage("Yay! You found a key!");
-
-
-               // StartCoroutine(HideKey());
-        //    }
-        //}
-
-        //if (other.gameObject.CompareTag("Pedestal") && GameSaveManager.HasAllTriangles())
-        //{
-        //    GameSaveManager.instance.TriggerConfetti();
-        //    GameSaveManager.instance.TriggerWinCondition();
-        //}
-
-        //        StartCoroutine(HideKey());
-        //    }
-        //}
-
-
-        //        ShowMessage("Yay! You found a key!");
-
-        //        StartCoroutine(HideKey());
-        //    }
-        //}
+                StartCoroutine(HideKey());
+            }
+      
 
     
+
+    // Instructions Ice
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (SceneManager.GetActiveScene().name == "IceRoom")
+        {
+            instructionsPanel.SetActive(true);
+        }
+    }
 
     public void ContinueFromInstructions()
     {
         animator.enabled = true;
-        isPausedForInstructions = false;
         instructionsPanel.SetActive(false);
+        isPausedForInstructions = false;
         if (timerBehavior != null) timerBehavior.isPaused = true;
 
         if (timerBehavior != null)
@@ -396,7 +395,7 @@ public class PlayerController : MonoBehaviour
         if(lifeCount == 0) {
 
             animator.SetTrigger("Death");
-            // play death sound 
+            PlaySound(3);
             // fade screen to black
             StartCoroutine(Death());
             }
