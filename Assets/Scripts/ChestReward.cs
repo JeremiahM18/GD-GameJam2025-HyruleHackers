@@ -2,11 +2,41 @@ using UnityEngine;
 
 public class ChestReward : MonoBehaviour
 {
-    public enum RewardType {FireGem, IceGem, ForestGem, Key}
+    public enum RewardType {FireGem, IceGem, ForestGem, Key, Sword}
     public RewardType reward;
 
     public GameObject rewardSprite;
     private bool opened = false;
+
+    private bool waitForEnemies = false;
+
+    private void Start()
+    {
+        // Hide chest until enemies are defeated
+        if (ShouldWaitForEnemies())
+        {
+            waitForEnemies = true;
+            gameObject.SetActive(false);
+        }
+    }
+
+    private void Update()
+    {
+        if (waitForEnemies)
+        {
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            if(enemies.Length == 0)
+            {
+                gameObject.SetActive(true);
+                waitForEnemies=false;
+            }
+        }
+    }
+
+    private bool ShouldWaitForEnemies()
+    {
+        return reward == RewardType.FireGem;
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -33,22 +63,26 @@ public class ChestReward : MonoBehaviour
             {
                 case RewardType.FireGem:
                     GameManager.instance.SetGemState("fire", true);
-                    UIManager.Instance.ShowMessage("You found the Fire Gem!");
+                    //UIManager.Instance.ShowMessage("You found the Fire Gem!");
                     break;
 
                 case RewardType.IceGem:
                     GameManager.instance.SetGemState("ice", true);
-                    UIManager.Instance.ShowMessage("You found the Ice Gem!");
+                    //UIManager.Instance.ShowMessage("You found the Ice Gem!");
                     break;
 
                 case RewardType.ForestGem:
                     GameManager.instance.SetGemState("forest", true);
-                    UIManager.Instance.ShowMessage("You found the Forest Gem!");
+                    //UIManager.Instance.ShowMessage("You found the Forest Gem!");
                     break;
 
                 case RewardType.Key:
                     other.GetComponent<PlayerController>().AddKey();
-                    UIManager.Instance.ShowMessage("You found a Key!");
+                    //UIManager.Instance.ShowMessage("You found a Key!");
+                    break;
+                case RewardType.Sword:
+                    other.GetComponent<PlayerController>().UnlockSword();
+                    //UIManager.Instance.ShowMessage("You found the Sword!");
                     break;
             }
 

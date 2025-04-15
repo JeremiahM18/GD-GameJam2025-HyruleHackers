@@ -47,10 +47,7 @@ public class PlayerController : MonoBehaviour
 
     private static bool hasSword = false;
     private static int keyCount = 0; // forest >=1, ice >= 2, lava >= 3
-    private static bool hasFireTriangle => GameManager.instance.hasFireGem;
-    private static bool hasIceTriangle => GameManager.instance.hasIceGem;
-    private static bool hasForestTriangle => GameManager.instance.hasForestGem;
-
+    
     public GameObject PauseMenu;
 
     // Door Menu
@@ -133,8 +130,6 @@ public class PlayerController : MonoBehaviour
 
         // IceRoom Respawn
         RespawnPoint = new Vector2(-4.0f, 0);
-
-        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     void OnMove(InputValue movementValue) {
@@ -166,15 +161,7 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("MoveX", moveX);
         animator.SetFloat("MoveY", moveY);
 
-        //animator.SetBool("IsMoving", moveX != 0 || moveY != 0);
-        if (moveX != 0 || moveY != 0)
-        {
-            animator.SetBool("IsMoving", true); // Force the transition when moving
-        }
-        else
-        {
-            animator.SetBool("IsMoving", false); // Transition back to idle when not moving
-        }
+        animator.SetBool("IsMoving", moveX != 0 || moveY != 0);
 
         //Sets HasSword parameter if player has sword
         animator.SetBool("HasSword", hasSword);
@@ -284,67 +271,82 @@ public class PlayerController : MonoBehaviour
             {
                 timerBehavior.RestartTimer();
             }
-
-            else if (other.gameObject.CompareTag("Pedestal") && GameSaveManager.HasAllTriangles())
-            {
-                GameSaveManager.instance.TriggerConfetti();
-                GameSaveManager.instance.TriggerWinCondition();
-            }
         }
 
-
-        if (other.gameObject.CompareTag("Chest"))
-        {
-            chestAnim = other.gameObject.GetComponent<Animator>();
-            if (chestAnim != null)
-            {
-                chestAnim.SetTrigger("Open");
-                 if (keyCount < keyIcon.Length)
-                 {
-                    keyIcon[keyCount].gameObject.SetActive(true);
-                 }
-                PlaySound(4);
-                key.SetActive(true);
-                keyCount = keyCount + 1;
-
-
-                ShowMessage("Yay! You found a key!");
-
-
-                StartCoroutine(HideKey());
-            }
-        }
-
-        if (other.gameObject.CompareTag("Pedestal") && GameSaveManager.HasAllTriangles())
+        else if (other.gameObject.CompareTag("Pedestal") && GameSaveManager.HasAllTriangles())
         {
             GameSaveManager.instance.TriggerConfetti();
             GameSaveManager.instance.TriggerWinCondition();
         }
 
-                StartCoroutine(HideKey());
 
-                ShowMessage("Yay! You found a key!");
+        //if (other.gameObject.CompareTag("Chest"))
+        //{
+        //    chestAnim = other.gameObject.GetComponent<Animator>();
+        //    if (chestAnim != null)
+        //    {
+        //        chestAnim.SetTrigger("Open");
+        //        // if (keyCount < keyIcon.Length)
+        //        // {
+        //        keyIcon[keyCount].gameObject.SetActive(true);
+        //        // }
+        //        PlaySound(4);
+        //        key.SetActive(true);
+        //        keyCount = keyCount + 1;
 
-                StartCoroutine(HideKey());
-            }
-      
+    }
+
+
+
+        //if (other.gameObject.CompareTag("Chest"))
+        //{
+        //    chestAnim = other.gameObject.GetComponent<Animator>();
+        //    if (chestAnim != null)
+        //    {
+        //        chestAnim.SetTrigger("Open");
+        //        // if (keyCount < keyIcon.Length)
+        //        // {
+        //            keyIcon[keyCount].gameObject.SetActive(true);
+        //        // }
+        //        PlaySound(4);
+        //        key.SetActive(true);
+        //        keyCount = keyCount + 1;
+
+
+
+        //        ShowMessage("Yay! You found a key!");
+
+
+               // StartCoroutine(HideKey());
+        //    }
+        //}
+
+        //if (other.gameObject.CompareTag("Pedestal") && GameSaveManager.HasAllTriangles())
+        //{
+        //    GameSaveManager.instance.TriggerConfetti();
+        //    GameSaveManager.instance.TriggerWinCondition();
+        //}
+
+        //        StartCoroutine(HideKey());
+        //    }
+        //}
+
+
+        //        ShowMessage("Yay! You found a key!");
+
+        //        StartCoroutine(HideKey());
+        //    }
+        //}
+
 
     
-
-    // Instructions Ice
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        if (SceneManager.GetActiveScene().name == "IceRoom")
-        {
-            instructionsPanel.SetActive(true);
-        }
-    }
+    
 
     public void ContinueFromInstructions()
     {
         animator.enabled = true;
-        instructionsPanel.SetActive(false);
         isPausedForInstructions = false;
+        instructionsPanel.SetActive(false);
         if (timerBehavior != null) timerBehavior.isPaused = true;
 
         if (timerBehavior != null)
@@ -378,6 +380,7 @@ public class PlayerController : MonoBehaviour
 
         void loseHealth() {
 
+
         if (isRecovering || lifeCount <= 0)
         {
             return;
@@ -395,7 +398,7 @@ public class PlayerController : MonoBehaviour
         if(lifeCount == 0) {
 
             animator.SetTrigger("Death");
-            PlaySound(3);
+            // play death sound 
             // fade screen to black
             StartCoroutine(Death());
             }
@@ -407,6 +410,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator RecoveryFlash()
     {
+
         isRecovering = true;
         float elapsed = 0f;
 
@@ -433,6 +437,12 @@ public class PlayerController : MonoBehaviour
             lifeIcon[lifeCount].gameObject.SetActive(true);
             lifeCount++;
         }
+    }
+
+    public void UnlockSword()
+    {
+        hasSword = true;
+        PlaySound(5);
     }
 
     #region Coins
@@ -474,22 +484,21 @@ public class PlayerController : MonoBehaviour
 
     #region Gem States
 
-    public bool HasFireGem() => hasFireTriangle;
-    public bool HasIceGem() => hasIceTriangle;
+    public bool HasFireGem() => PlayerPrefs.GetInt("FireGem", 0) == 1;
+    public bool HasIceGem() => PlayerPrefs.GetInt("IceGem", 0) == 1;
 
-    public bool HasForestGem() => hasForestTriangle;
+    public bool HasForestGem() => PlayerPrefs.GetInt("ForestGem", 0) == 1;
 
     public void SetGemState(string type, bool state)
     {
+        //GameManager.instance.SetGemState(string type, bool state);
+        switch (type)
+        {
+            case "fire": PlayerPrefs.SetInt("FireGem", state ? 1 : 0); break;
+            case "ice": PlayerPrefs.SetInt("IceGem", state ? 1 : 0); break;
+            case "forest": PlayerPrefs.SetInt("ForestGem", state ? 1 : 0); break;
+        }
 
-        GameManager.instance.SetGemState(type, state);
-        //switch (type)
-        //{
-        //    case "fire": hasFireTriangle = state; break;
-        //    case "ice": hasIceTriangle = state; break;
-        //    case "forest": hasForestTriangle = state; break;
-        //}
-    
     }
     #endregion
 }

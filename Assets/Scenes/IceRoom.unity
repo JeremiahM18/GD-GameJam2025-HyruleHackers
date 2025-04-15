@@ -3401,7 +3401,7 @@ GameObject:
   - component: {fileID: 484139015}
   m_Layer: 0
   m_Name: Icicle Walls
-  m_TagString: Untagged
+  m_TagString: IcicleWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
