@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
     public GameObject hasIceKey;
     public GameObject hasLavaKey;
     public GameObject locked;
-    public GameObject key;
+    // public GameObject key;
 
     // Coin Collect
     private int triangleCoins = 0;
@@ -94,11 +94,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /* 
     IEnumerator HideKey()
     {
         yield return new WaitForSeconds(1.5f);
         key.SetActive(false);
     }
+    */
 
     IEnumerator FollowUpMessage(string followUpText, float delay)
     {
@@ -123,10 +125,12 @@ public class PlayerController : MonoBehaviour
             messageText.transform.parent.gameObject.SetActive(false);
         }
 
+        /*
         if (key != null)
         {
             key.SetActive(false);
         }
+        */
 
         // IceRoom Respawn
         RespawnPoint = new Vector2(-4.0f, 0);
@@ -185,6 +189,7 @@ public class PlayerController : MonoBehaviour
 
     // Handle all pick up items
     void OnTriggerEnter2D (Collider2D pickup) {
+        /*
         // Fire Triangle
         if (pickup.gameObject.CompareTag("FireTriangle"))
         {
@@ -208,9 +213,10 @@ public class PlayerController : MonoBehaviour
             ShowMessage("The shard of Creativity!");
             StartCoroutine(FollowUpMessage("One more left!", 2f));
         }
+        */
 
         // Heart
-         else if (pickup.gameObject.CompareTag("Heart")) {
+         if (pickup.gameObject.CompareTag("Heart")) {
             gainHealth();
         }
 
@@ -467,9 +473,9 @@ public class PlayerController : MonoBehaviour
             keyIcon[keyCount].SetActive(true);
             keyCount++;
             PlaySound(4);
-            key.SetActive(true);
+            // key.SetActive(true);
             ShowMessage("You found a key!");
-            StartCoroutine(HideKey());
+            // StartCoroutine(HideKey());
         }
     }
 

@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class MenuScript : MonoBehaviour
 {
+    public GameObject DoorMenu;
     private IEnumerator WaitForSoundAndTransition(string sceneName) {
         AudioSource source = GetComponent<AudioSource>();
         source.Play();
         yield return new WaitForSeconds(source.clip.length); // wait for sound to finish
+        DoorMenu.gameObject.SetActive(false);
         SceneManager.LoadScene(sceneName); // Load next scene
     }
 

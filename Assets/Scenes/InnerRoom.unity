@@ -23728,6 +23728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8155ee5009b5b40c8adcdceb8e459530, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DoorMenu: {fileID: 0}
 --- !u!1001 &794121466
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24085,6 +24086,10 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 4d52a1e68dbd74ba19cdd5e3b0c462b1, type: 3}
+    - target: {fileID: 2336528411210270923, guid: 419b905c1916446409c5bc86576d3d34, type: 3}
+      propertyPath: DoorMenu
+      value: 
+      objectReference: {fileID: 835739483}
     - target: {fileID: 2416107689253882916, guid: 419b905c1916446409c5bc86576d3d34, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -24281,6 +24286,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 6009937782771387509, guid: 419b905c1916446409c5bc86576d3d34, type: 3}
+      propertyPath: DoorMenu
+      value: 
+      objectReference: {fileID: 835739483}
     - target: {fileID: 6613570600037840492, guid: 419b905c1916446409c5bc86576d3d34, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -24305,6 +24314,10 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 4d52a1e68dbd74ba19cdd5e3b0c462b1, type: 3}
+    - target: {fileID: 8033120640045877519, guid: 419b905c1916446409c5bc86576d3d34, type: 3}
+      propertyPath: DoorMenu
+      value: 
+      objectReference: {fileID: 835739483}
     - target: {fileID: 8261400469457482786, guid: 419b905c1916446409c5bc86576d3d34, type: 3}
       propertyPath: m_SizeDelta.y
       value: 104.9
@@ -24419,6 +24432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8155ee5009b5b40c8adcdceb8e459530, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DoorMenu: {fileID: 835739483}
 --- !u!1 &836056356 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4961350735741218800, guid: 419b905c1916446409c5bc86576d3d34, type: 3}
