@@ -32,7 +32,7 @@ public class UIManager : MonoBehaviour
         {
             messageText.text = message;
             messageText.transform.parent.gameObject.SetActive(true);
-            //Instance.StartCoroutine(HideMessageAfterDelay(duration));
+            StartCoroutine(HideMessageAfterDelay(duration));
         }
     }
 

@@ -7,7 +7,6 @@ public class ChestReward : MonoBehaviour
 
     public GameObject rewardSprite;
     private bool opened = false;
-
     private bool waitForEnemies = false;
 
     private void Start()
@@ -59,30 +58,32 @@ public class ChestReward : MonoBehaviour
                 rewardSprite.SetActive(true);
             }
 
+            var player = other.GetComponent<PlayerController>();
+
             switch (reward)
             {
                 case RewardType.FireGem:
                     GameManager.instance.SetGemState("fire", true);
-                    //UIManager.Instance.ShowMessage("You found the Fire Gem!");
+                    UIManager.Instance.ShowMessage("You found the Fire Gem!");
                     break;
 
                 case RewardType.IceGem:
                     GameManager.instance.SetGemState("ice", true);
-                    //UIManager.Instance.ShowMessage("You found the Ice Gem!");
+                    UIManager.Instance.ShowMessage("You found the Ice Gem!");
                     break;
 
                 case RewardType.ForestGem:
                     GameManager.instance.SetGemState("forest", true);
-                    //UIManager.Instance.ShowMessage("You found the Forest Gem!");
+                    UIManager.Instance.ShowMessage("You found the Forest Gem!");
                     break;
 
                 case RewardType.Key:
-                    other.GetComponent<PlayerController>().AddKey();
-                    //UIManager.Instance.ShowMessage("You found a Key!");
+                    player?.AddKey();
+                    UIManager.Instance.ShowMessage("You found a Key!");
                     break;
                 case RewardType.Sword:
-                    other.GetComponent<PlayerController>().UnlockSword();
-                    //UIManager.Instance.ShowMessage("You found the Sword!");
+                    player?.UnlockSword();
+                    UIManager.Instance.ShowMessage("You found the Sword!");
                     break;
             }
 

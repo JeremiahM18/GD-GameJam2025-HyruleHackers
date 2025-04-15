@@ -23556,9 +23556,9 @@ MonoBehaviour:
   forestSpawn: {fileID: 0}
   iceSpawn: {fileID: 0}
   lavaSpawn: {fileID: 0}
-  innerSpawnForest: {fileID: 1750708083}
-  innerSpawnIce: {fileID: 955395084}
-  innerSpawnLava: {fileID: 1496720644}
+  innerSpawnForest: {fileID: 1750708084}
+  innerSpawnIce: {fileID: 955395085}
+  innerSpawnLava: {fileID: 1496720645}
 --- !u!4 &544217190
 Transform:
   m_ObjectHideFlags: 0
@@ -23777,6 +23777,10 @@ PrefabInstance:
       propertyPath: hasForestKey
       value: 
       objectReference: {fileID: 1501309939}
+    - target: {fileID: 1055118436953783436, guid: a5b4ef179156048d69d1c47be2a17ca3, type: 3}
+      propertyPath: timerBehavior
+      value: 
+      objectReference: {fileID: 1421431120}
     - target: {fileID: 1055118436953783436, guid: a5b4ef179156048d69d1c47be2a17ca3, type: 3}
       propertyPath: instructionsPanel
       value: 
@@ -29802,6 +29806,53 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e27c64c2e3dbc24298fb87a93eb8565, type: 3}
+--- !u!1 &1421431119
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1421431121}
+  - component: {fileID: 1421431120}
+  m_Layer: 0
+  m_Name: TimerBehavior
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1421431120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421431119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d1705b551f04241b6abbe09b4b1ef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RespawnPoint: {fileID: 0}
+  textField: {fileID: 0}
+  isPaused: 0
+--- !u!4 &1421431121
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421431119}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1424884873
 GameObject:
   m_ObjectHideFlags: 0
@@ -31275,6 +31326,7 @@ SceneRoots:
   - {fileID: 1546625870}
   - {fileID: 190125610}
   - {fileID: 2007901601}
+  - {fileID: 1421431121}
   - {fileID: 1232141487}
   - {fileID: 193826665}
   - {fileID: 1425574346}
