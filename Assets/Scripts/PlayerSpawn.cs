@@ -3,32 +3,49 @@ using UnityEngine;
 
 public class PlayerSpawn : MonoBehaviour
 {
-    public GameObject forestSpawn;
-    public GameObject iceSpawn;
-    public GameObject lavaSpawn;
-    public GameObject innerSpawnForest;
-    public GameObject innerSpawnIce;
-    public GameObject innerSpawnLava;
+    public Transform forestSpawn;
+    public Transform iceSpawn;
+    public Transform lavaSpawn;
+
+    public Transform innerSpawnForest;
+    public Transform innerSpawnIce;
+    public Transform innerSpawnLava;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if(player == null ) return;
 
-        if (player != null) {
-            if (SceneManager.GetActiveScene().name == "ForestRoom") {
-                player.transform.position = forestSpawn.transform.position;
-            } else if (SceneManager.GetActiveScene().name == "IceRoom") {
-                player.transform.position = iceSpawn.transform.position;
-            } else if (SceneManager.GetActiveScene().name == "LavaRoom") {
-                player.transform.position = lavaSpawn.transform.position;
-            } else if (SceneManager.GetActiveScene().name == "InnerRoom" && player.transform.position.x > 3f) {
-                player.transform.position = innerSpawnForest.transform.position;
-            } else if (SceneManager.GetActiveScene().name == "InnerRoom" && player.transform.position.x < -3f) {
-                player.transform.position = innerSpawnIce.transform.position;
-            } else if (SceneManager.GetActiveScene().name == "InnerRoom" && player.transform.position.y < -3f) {
-                player.transform.position = innerSpawnLava.transform.position;
-            } 
+        string scene = SceneManager.GetActiveScene().name;
+
+        switch (scene)
+        {
+            case "ForestRoom":
+                player.transform.position = forestSpawn.position;
+                break;
+
+            case "IceRoom":
+                player.transform .position = iceSpawn.position; 
+                break;
+
+            case "LavaRoom":
+                player.transform.position = lavaSpawn.position;
+                break;
+
+            case "InnerRoom":
+                Vector3 prevPos = player.transform.position;
+                if(prevPos.x > 3f)
+                {
+                    player.transform.position = innerSpawnForest.position;
+                } else if (prevPos.x < -3f)
+                {
+                    player.transform.position = innerSpawnIce.position;
+                } else if (prevPos.y < -3f)
+                {
+                    player.transform.position = innerSpawnLava.position;
+                }
+                break;
         }
     }
 }

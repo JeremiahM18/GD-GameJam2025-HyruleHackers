@@ -5,27 +5,33 @@ public class TimerBehavior : MonoBehaviour
 {
     // public GameObject player;
     private GameObject player;
+
     public Transform RespawnPoint;
-    private float timer;
     public TextMeshProUGUI textField;
+
+    private float timer = 120f;    
     private bool hasRespawned = false;
     public bool isPaused = false;
 
     void Start()
     { 
         player = GameObject.FindGameObjectWithTag("Player");
-        if (textField == null)
+
+        if (player == null)
         {
-            Debug.Log("No TextMeshProUGUI component found.");
+            Debug.LogWarning("Player not found! Tag a player");
         }
 
-        timer = 120f;
+        if (textField == null)
+        {
+            Debug.LogWarning("Timer text field not assigned.");
+        }
         UpdateTimerText();
     }
 
     void Update()
     {
-        if (isPaused) return;
+        if (isPaused || player == null) return;
 
         if (timer > 0)
         {
@@ -46,6 +52,9 @@ public class TimerBehavior : MonoBehaviour
 
     private void UpdateTimerText()
     {
+        if (textField == null) return;
+
+
         int minutes = (int)timer / 60;
         int seconds = (int)timer % 60;
         string message = string.Format("Timer: {0:00}:{1:00}", minutes, seconds);
@@ -55,12 +64,13 @@ public class TimerBehavior : MonoBehaviour
     public void StartTimer(float time)
     {
         timer = time;
+        hasRespawned = false;
+        UpdateTimerText();
     }
 
     public void RestartTimer()
     {
-        timer = 120f;
-        hasRespawned = false;
+        StartTimer(120);
     }
 
 }
