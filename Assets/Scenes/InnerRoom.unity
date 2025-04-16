@@ -23891,10 +23891,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2044397674}
     - target: {fileID: 1055118436953783436, guid: a5b4ef179156048d69d1c47be2a17ca3, type: 3}
-      propertyPath: hasIceKey
-      value: 
-      objectReference: {fileID: 1885746350}
-    - target: {fileID: 1055118436953783436, guid: a5b4ef179156048d69d1c47be2a17ca3, type: 3}
       propertyPath: hasFireKey
       value: 
       objectReference: {fileID: 890198854}
@@ -31547,13 +31543,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1883685851}
   m_CullTransparentMesh: 1
---- !u!1 &1885746350 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1404820573796442089, guid: 419b905c1916446409c5bc86576d3d34, type: 3}
-  m_PrefabInstance: {fileID: 835739480}
-  m_PrefabAsset: {fileID: 0}
-<<<<<<< Updated upstream
-=======
 --- !u!1 &1889753206
 GameObject:
   m_ObjectHideFlags: 0
@@ -31831,7 +31820,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1891037007}
   m_CullTransparentMesh: 1
->>>>>>> Stashed changes
 --- !u!224 &1903328322 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3713704202186996231, guid: 419b905c1916446409c5bc86576d3d34, type: 3}
