@@ -38,6 +38,14 @@ public class GameSaveManager : MonoBehaviour
         }
 }
 
+    public void loadGame()
+    {
+        GameManager.instance.SetGemState("fire", PlayerPrefs.GetInt("FireGem", 0) == 1);
+        GameManager.instance.SetGemState("ice", PlayerPrefs.GetInt("IceGem", 0) == 1);
+        GameManager.instance.SetGemState("forest", PlayerPrefs.GetInt("ForestGem", 0) == 1);
+
+    }
+
     public static bool HasAllTriangles()
 {
     return PlayerPrefs.GetInt("FireGem", 0) == 1 &&
@@ -75,6 +83,8 @@ private void ChangePedestalImage()
         }
     }
 }
+
+
 
     
 

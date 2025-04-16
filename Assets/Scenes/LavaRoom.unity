@@ -24520,53 +24520,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7859470339314140053, guid: bf552022f9b6540448d42b7eb03ae5ee, type: 3}
   m_PrefabInstance: {fileID: 1850491538}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1865291047
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1865291049}
-  - component: {fileID: 1865291048}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1865291048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1865291047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57f449d3f6a3c9249aaca9e6d63f2c4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hasFireGem: 0
-  hasIceGem: 0
-  hasForestGem: 0
---- !u!4 &1865291049
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1865291047}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.24535823, y: 1.8477886, z: -10.037475}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1912070370
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25113,6 +25066,7 @@ MonoBehaviour:
   innerSpawnForest: {fileID: 0}
   innerSpawnIce: {fileID: 0}
   innerSpawnLava: {fileID: 0}
+  innerSpawnDefault: {fileID: 0}
 --- !u!1001 &2088157665
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25592,7 +25546,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 952627708}
-  - {fileID: 1865291049}
   - {fileID: 1349367812}
   - {fileID: 1791117906}
   - {fileID: 899785573}

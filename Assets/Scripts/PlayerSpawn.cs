@@ -11,6 +11,8 @@ public class PlayerSpawn : MonoBehaviour
     public Transform innerSpawnIce;
     public Transform innerSpawnLava;
 
+    public Transform innerSpawnDefault;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,29 +24,43 @@ public class PlayerSpawn : MonoBehaviour
         switch (scene)
         {
             case "ForestRoom":
-                player.transform.position = forestSpawn.position;
+                if(GameManager.instance.lastExit == "InnerToForest")
+                    player.transform.position = forestSpawn.position;
                 break;
 
             case "IceRoom":
-                player.transform .position = iceSpawn.position; 
+                if(GameManager.instance.lastExit == "InnerToIce")
+                    player.transform .position = iceSpawn.position; 
                 break;
 
             case "LavaRoom":
-                player.transform.position = lavaSpawn.position;
+                if(GameManager.instance.lastExit == "InnerToLava")
+                    player.transform.position = lavaSpawn.position;
                 break;
 
             case "InnerRoom":
-                Vector3 prevPos = player.transform.position;
-                if(prevPos.x > 3f)
+                switch (GameManager.instance.lastExit)
                 {
-                    player.transform.position = innerSpawnForest.position;
-                } else if (prevPos.x < -3f)
-                {
-                    player.transform.position = innerSpawnIce.position;
-                } else if (prevPos.y < -3f)
-                {
-                    player.transform.position = innerSpawnLava.position;
+                    case "ForestToInner":
+                        player.transform.position = innerSpawnForest.position;
+                        break;
+
+                    case "IceToInner":
+                        player.transform.position= innerSpawnIce.position;
+                        break;
+
+                    case "LavaToInner":
+                        player.transform.position = innerSpawnLava.position;
+                        break;
+                    default:
+                        Debug.LogWarning("Unknown lastExit. Using default Inner Room spawn.");
+                        if(innerSpawnDefault != null )
+                            player.transform.position += innerSpawnDefault.position;
+                        break;
                 }
+
+                GameManager.instance.lastExit = "";
+
                 break;
         }
     }
