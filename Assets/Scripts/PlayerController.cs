@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
     // Sounds
     public AudioClip[] soundClips;
-    public AudioSource audioSource;
+    private AudioSource audioSource;
 
     public static int lifeCount = 3;
 
