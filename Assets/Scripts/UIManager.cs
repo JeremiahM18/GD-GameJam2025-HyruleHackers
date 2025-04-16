@@ -1,12 +1,13 @@
 using System.Collections;
-using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    public static UIManager Instance;
-    public TMP_Text messageText;
+    public static UIManager Instance { get; private set; }
+
+    public CanvasGroup toastGroup;
+    public TMP_Text toastText;
 
     private Coroutine hideMessageCoroutine;
 
@@ -23,31 +24,35 @@ public class UIManager : MonoBehaviour
     }
     #endregion
 
-    public void ShowMessage(string message, float duration = 2f)
+ 
+
+    public void showToast(string message, float duration = 2f)
     {
-        if(messageText == null)
-        {
-            return;
-        }
-        else
-        {
-            messageText.text = message;
-            messageText.transform.parent.gameObject.SetActive(true);
-
-            if (hideMessageCoroutine != null)
-            {
-                StopCoroutine(hideMessageCoroutine);
-            }
-
-            hideMessageCoroutine = StartCoroutine(HideMessageAfterDelay(duration));
-        }
+        if (toastText == null || toastGroup == null) return;
+        
+        toastText.text = message;
+        StartCoroutine(ToastSequence(duration));
     }
 
-    private IEnumerator HideMessageAfterDelay(float delay)
+    private IEnumerator ToastSequence(float duration)
     {
-        yield return new WaitForSeconds(delay);
-        messageText.transform.parent.gameObject.SetActive(false);
-    }
+        toastGroup.alpha = 1;
+        toastGroup.gameObject.SetActive(true);
 
+        yield return new WaitForSeconds(duration);
+
+        // Fade out
+        float fadeTime = 0.5f;
+        float elapsed = 0f;
+        while (elapsed < fadeTime)
+        {
+            toastGroup.alpha = Mathf.Lerp(1, 0, elapsed / fadeTime);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        toastGroup.alpha = 0;
+        toastGroup.gameObject.SetActive(false);
+    }
 
 }

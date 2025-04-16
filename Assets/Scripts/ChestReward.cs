@@ -64,26 +64,33 @@ public class ChestReward : MonoBehaviour
             {
                 case RewardType.FireGem:
                     GameManager.instance.SetGemState("fire", true);
-                    UIManager.Instance.ShowMessage("You found the Fire Gem!");
+                    UIManager.Instance.showToast("You found the Fire Gem!");
                     break;
 
                 case RewardType.IceGem:
                     GameManager.instance.SetGemState("ice", true);
-                    UIManager.Instance.ShowMessage("You found the Ice Gem!");
+                    UIManager.Instance.showToast("You found the Ice Gem!");
                     break;
 
                 case RewardType.ForestGem:
                     GameManager.instance.SetGemState("forest", true);
-                    UIManager.Instance.ShowMessage("You found the Forest Gem!");
+                    UIManager.Instance.showToast("You found the Forest Gem!");
+
+                    GameObject keyChest = GameObject.Find("KeyChestAfterGem");
+                    if(keyChest != null)
+                    {
+                        keyChest.SetActive(true);
+                    }
+
                     break;
 
                 case RewardType.Key:
                     player?.AddKey();
-                    UIManager.Instance.ShowMessage("You found a Key!");
+                    UIManager.Instance.showToast("You found a Key!");
                     break;
                 case RewardType.Sword:
                     player?.UnlockSword();
-                    UIManager.Instance.ShowMessage("You found the Sword!");
+                    UIManager.Instance.showToast("You found the Sword!");
                     break;
             }
 

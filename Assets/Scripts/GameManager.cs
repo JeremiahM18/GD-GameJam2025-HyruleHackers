@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public bool hasIceGem = false;
     public bool hasForestGem = false;
 
+    public string lastExit = "";
+
     #region Singleton
     private void Awake()
     {
@@ -27,9 +29,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        hasFireGem = PlayerPrefs.GetInt("FireGem", 0) == 1;
-        hasIceGem = PlayerPrefs.GetInt("IceGem", 0) == 1;
-        hasForestGem = PlayerPrefs.GetInt("ForestGem", 0) == 1;
+        
     }
     public void SetGemState(string type, bool value)
     {

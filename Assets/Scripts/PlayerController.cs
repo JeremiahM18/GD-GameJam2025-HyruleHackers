@@ -61,8 +61,6 @@ public class PlayerController : MonoBehaviour
     private int triangleCoins = 0;
     private const int maxCoins = 99;
 
-    public TMP_Text messageText;
-
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -74,12 +72,6 @@ public class PlayerController : MonoBehaviour
             isPausedForInstructions = true;
             instructionsPanel.SetActive(true); // Show your instructions popup
         }
-
-        if (messageText != null && messageText.transform.parent != null)
-        {
-            messageText.transform.parent.gameObject.SetActive(false);
-        }
-
     }
 
     void OnMove(InputValue movementValue)
@@ -87,6 +79,19 @@ public class PlayerController : MonoBehaviour
         Vector2 movementVector = movementValue.Get<Vector2>();
         moveX = movementVector.x;
         moveY = movementVector.y;
+    }
+
+    public void continueFromInstructions()
+    {
+        animator.enabled = true;
+        isPausedForInstructions = false;
+        instructionsPanel.SetActive(false);
+        timerBehavior.RestartTimer();
+
+        // Force update animator
+        animator.SetFloat("MoveX", moveX);
+        animator.SetFloat("MoveY", moveY);
+        animator.SetBool("IsMoving", moveX != 0 || moveY !=0);
     }
 
     void Update()
@@ -191,7 +196,7 @@ public class PlayerController : MonoBehaviour
             case "Sword":
                 pickup.gameObject.SetActive(false);
                 hasSword = true;
-                UIManager.Instance.ShowMessage("You have the Sword!");
+                UIManager.Instance.showToast("You have the Sword!");
                 break;
         }
     }
@@ -280,25 +285,6 @@ public class PlayerController : MonoBehaviour
         doorMenu.SetActive(false);
     }
 
-    void ShowMessage(string message)
-    {
-        if (messageText != null && messageText.transform.parent != null)
-        {
-            messageText.text = message;
-            messageText.transform.parent.gameObject.SetActive(true);
-            StartCoroutine(HideMessageAfterDelay(2f));
-        }
-    }
-
-    IEnumerator HideMessageAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        if (messageText != null && messageText.transform.parent != null)
-        {
-            messageText.transform.parent.gameObject.SetActive(false);
-        }
-    }
-
     void PlaySound(int soundIndex)
     {
         if (soundIndex >= 0 && soundIndex < soundClips.Length)
@@ -321,7 +307,7 @@ public class PlayerController : MonoBehaviour
             keyIcon[keyCount].SetActive(true);
             keyCount++;
             PlaySound(4);
-            UIManager.Instance.ShowMessage("You found a Key!");
+            UIManager.Instance.showToast("You found a Key!");
         }
     }
     public void UnlockSword()
