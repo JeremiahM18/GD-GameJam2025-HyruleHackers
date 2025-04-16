@@ -6,8 +6,9 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
-
     public TMP_Text messageText;
+
+    private Coroutine hideMessageCoroutine;
 
     #region Singleton
     private void Awake() {
@@ -32,7 +33,13 @@ public class UIManager : MonoBehaviour
         {
             messageText.text = message;
             messageText.transform.parent.gameObject.SetActive(true);
-            StartCoroutine(HideMessageAfterDelay(duration));
+
+            if (hideMessageCoroutine != null)
+            {
+                StopCoroutine(hideMessageCoroutine);
+            }
+
+            hideMessageCoroutine = StartCoroutine(HideMessageAfterDelay(duration));
         }
     }
 
